@@ -1,0 +1,17 @@
+language: ruby
+rvm:
+  - 1.9.3
+  - 2.2.3
+before_install:
+  - gem update --system
+  - gem --version
+before_script:
+  - cp config/database.yml.example config/database.yml
+  - mysql -e 'create database simplehr_test;'
+  - RAILS_ENV=test bundle exec rake db:migrate test
+
+notifications:
+  email:
+    - aboobackervyd+simplehr@gmail.com
+    - mastersdream+simplehr@gmail.com
+    - sobisunny+simplehr@gmail.com
