@@ -1,0 +1,56 @@
+<% page_header @calendar_event.title %>
+<% build_breadcrumb @calendar_event%>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @calendar_event.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @calendar_event.description %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @calendar_event.comments %>
+</p>
+
+<p>
+  <strong>Start at:</strong>
+  <%= @calendar_event.start_at %>
+</p>
+
+<p>
+  <strong>End at:</strong>
+  <%= @calendar_event.end_at %>
+</p>
+
+<p>
+  <strong>Location name:</strong>
+  <%= @calendar_event.location_name %>
+</p>
+
+<p>
+  <strong>Location address:</strong>
+  <%= @calendar_event.location_address %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @calendar_event.creator %>
+</p>
+
+<p>
+  <strong>Calender event:</strong>
+  <%#= @calendar_event.e %>
+</p>
+
+<p>
+  <strong>Context:</strong>
+  <%= @calendar_event.context %>
+</p>
+
+<%= link_to 'Edit', edit_calendar_event_path(@calendar_event) %> |
+<%= link_to 'Back', calendar_events_path %>

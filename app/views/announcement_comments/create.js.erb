@@ -1,0 +1,10 @@
+console.log("create.js.erb file");
+<% unless @has_error %>
+  $("#announcement_comment_content").val("");
+
+  // # add new comment to end of comments section
+  $("#comments").prepend("<%=j render @announcement_comment %>");
+
+  // remove current DOM element stating there are no comments yet (if no comments yet exist)
+  $("#comments h4").html("");
+<% end %>

@@ -1,0 +1,20 @@
+<%= simple_form_for @employee do |f| %>
+  <%= f.input :employee_id %>
+  <%= f.input :date_of_birth,as: :bootstrap_datepicker %>
+  <%= f.input :date_of_join ,as: :bootstrap_datepicker%>
+  <%= f.input :gender, collection: [:male, :female] %>
+
+  <%= f.input :manager_id,collection: @employees %>
+  <%= f.input :referrer_id,collection: @employees %>
+  <%= f.input :department_id,collection: Department.all %>
+  <%= f.input :country_id, collection: @continents, as: :grouped_select, group_method: :countries %>
+  <%#= f.input :manager_id,collection: Employee.all %>
+  <%= f.fields_for :user do |ff| %>
+    <%= ff.input :first_name %>
+    <%= ff.input :last_name %>
+    <%= ff.input :email %>
+    <%= ff.input :avatar %>
+    <%= ff.input :password if @employee.new_record? %>
+  <% end %>
+  <%= f.button :submit %>
+<% end %>

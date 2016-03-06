@@ -1,0 +1,47 @@
+# == Schema Information
+#
+# Table name: calendar_events
+#
+#  id                :integer          not null, primary key
+#  title             :string
+#  description       :text
+#  comments          :text
+#  start_at          :datetime
+#  end_at            :datetime
+#  location_name     :string
+#  location_address  :text
+#  user_id           :integer
+#  calendar_event_id :integer
+#  context_id        :integer
+#  context_type      :string
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  comments: MyText
+  start_at: 2016-02-23 08:03:17
+  end_at: 2016-02-23 08:03:17
+  location_name: MyString
+  location_address: MyText
+  user_id: 
+  calendar_event_id: 
+  context_id: 
+  context_type: Context
+
+two:
+  title: MyString
+  description: MyText
+  comments: MyText
+  start_at: 2016-02-23 08:03:17
+  end_at: 2016-02-23 08:03:17
+  location_name: MyString
+  location_address: MyText
+  user_id: 
+  calendar_event_id: 
+  context_id: 
+  context_type: Context

@@ -1,0 +1,16 @@
+<% page_header "Calendar" %>
+<% page_header_description ""%>
+<% build_breadcrumb %>
+<div class="calendar-month-selector">
+  <%= link_to calendar_index_path(date: @date.prev_month) do %>
+    <span class="fa fa-arrow-left"></span>
+  <% end %>
+  <%= @date.strftime("%B %Y") %>
+  <%= link_to calendar_index_path(date: @date.next_month) do %>
+    <span class="fa fa-arrow-right"></span>
+  <% end %>
+</div>
+<div class="calendar">
+  <%= render partial: "header" %>
+  <%= render partial: "week",collection: @calendar %>
+</div>

@@ -1,0 +1,5 @@
+<% conversation.participants.each do |participant| %>
+  <% unless participant == current_user %>
+    <%= gravatar_tag participant.email,:size=>30 %>
+  <% end %>
+<% end %>

@@ -1,0 +1,211 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+*/
+$theme_dark: #355f5e;
+$theme_light: #2b6f6d;
+$theme_light_x: #3d7775;
+$theme_light_x2: #488d8b;
+$theme_medium: #2b6f6d;
+$ea : #eaeaea;
+@import "bootstrap-sprockets";
+@import "bootstrap";
+// @import "bootstrap-responsive";
+@import "bootstrap-datepicker";
+// @import 'bootstrap/theme';
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "devise_bootstrap_views";
+@import "mas-menu";
+@import "bootstrap-tagsinput.css";
+@import "dataTables/extras/dataTables.responsive";
+@import "dataTables/jquery.dataTables.foundation";
+@import "select2";
+@import "select2-bootstrap";
+@import "chosen";
+@import "comments";
+@import "calendar";
+@import "AdminLTE/AdminLTE";
+@import "AdminLTE/skins/skin-blue";
+@import "nprogress";
+@import "nprogress-bootstrap";
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+body {
+  background: #ECF0F1;
+  min-height: 100%;
+}
+.sam-app {
+  background: $theme_dark;
+}
+.page-container {
+  background: #ecf0f1;
+  padding: 40px;
+  float: left;
+  width: 100%;
+
+}
+.header {
+  background: #fff;
+  border-bottom: solid 1px #eaeaea;
+  .menu-toggler {
+    float: left;
+    padding: 5px 50px 0 0px;
+    color: $theme_dark;
+  }
+  .search-box {
+    max-width: 400px;
+    padding-top: 5px;
+    .search-query {
+      border: none;
+      border-bottom: solid 1px #e1e1e1;
+      box-shadow: none;
+    }
+    .btn-search {
+      background: none;
+      border-bottom: solid 1px #e1e1e1;
+    }
+  }
+  .notifications {
+    list-style: none;
+    width: 100%;
+    float: left;
+    margin: 0;
+    padding: 0;
+    .noti-btn {
+      width: 40px;
+      height: 40px;
+      float: left;
+      background: none;
+      .glyphicon {
+        padding-top: 10px;
+        color: #999;
+      }
+      .count {
+        background: #ea4c43;
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        color: white;
+        border-radius: 50%;
+        font-size: 9px;
+        font-weight: bold;
+        padding: 2px;
+      }
+    }
+  }
+  .notifications {
+    float: right;
+    width: auto;
+    padding-right: 20px;
+    .open {
+      display: block;
+      float: left;
+      border-bottom: solid 3px #83adac;
+    }
+    li {
+      display: block;
+      float: left;
+      border-bottom: solid 3px transparent;
+      padding: 0;
+      margin: 0;
+    }
+    .mas-dropdown {
+      min-width: 350px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.176);
+      border-top: none;
+      border-radius: 0;
+    }
+    .mail-notification-box {
+      .content {
+        padding: 0;
+        list-style: none;
+        .mail {
+          padding: 5px 15px;
+          width: 100%;
+          border-bottom: 1px solid #eaeaea;
+          p {
+            margin: 0;
+          }
+          .title {
+            font-size: 13px;
+            padding-top: 6px;
+            font-weight: bold;
+          }
+          .timedate {
+            font-size: 10px;
+            color: #999;
+            padding-bottom: 5px;
+          }
+          &:hover {
+            background: $ea;
+          }
+        }
+        .mail-footer {
+          .view-all {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+  .profile {
+    background: #355f5e;
+    color: #fff;
+    height: 44px;
+    .avatar {
+      float: left;
+      height: 40px;
+      img {
+        border-radius: 50%;
+        display: block;
+        height: 32px;
+        width: 32px;
+        margin: 5px 0 0 10px;
+      }
+    }
+    .details {
+      float: left;
+      span {
+        display: block;
+      }
+      .name {
+        margin-top: 4px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .mail {
+        font-size: 10px;
+        color: #83adac;
+      }
+    }
+    .logout {
+      color: #fff;
+      text-decoration: none;
+      height: 44px;
+      width: 44px;
+      float: right;
+      background: #214140;
+      text-align: center;
+      padding-top: 14px;
+      top: 0;
+    }
+  }
+}
+.page-header {
+  //margin: 0;
+  h1 {
+  //  margin: 0;
+  }
+}

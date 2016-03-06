@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Simple HR | Dashboard</title>
+  <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" /> -->
+  <!-- <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" /> -->
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <%= csrf_meta_tags %>
+</head>
+
+<body class="skin-blue sidebar-mini fixed <%= params[:controller].parameterize %> <%= action_name %>">
+  <div class="wrapper">
+
+    <%= render partial: 'layouts/admin_lte_2_header' %>
+
+    <%= render partial: 'layouts/admin_lte_2_sidebar' %>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          <%= yield :page_header %>
+          <small><%= yield :page_header_description %></small>
+        </h1>
+        <!-- <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+          <li class="active">Here</li>
+        </ol> -->
+        <%= breadcrumbs pretext: "You are here: ",separator: " &rsaquo; ",style: :bootstrap %>
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+        <% if notice %>
+          <div class="alert alert-success alert-dismissable">
+            <i class="fa fa-check"></i>
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <b><%= notice %></b>
+          </div>
+        <% end %>
+
+        <% if alert %>
+          <div class="alert alert-danger alert-dismissable">
+            <i class="fa fa-ban"></i>
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <b><%= alert %></b>
+          </div>
+        <% end %>
+        <%= yield %>
+      </section><!-- /.content -->
+    </div><!-- /.content-wrapper -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+      <!-- To the right -->
+      <div class="pull-right hidden-xs">
+        Open source HRM
+      </div>
+      <!-- Default to the left -->
+      <strong>Copyright &copy; 2015 <a href="#">MAS</a>.</strong> All rights reserved.
+    </footer>
+
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Create the tabs -->
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+          <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab" aria-expanded="true"><i class="fa fa-home"></i></a></li>
+          <li class=""><a href="#control-sidebar-settings-tab" data-toggle="tab" aria-expanded="false"><i class="fa fa-gears"></i></a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <!-- Home tab content -->
+          <div class="tab-pane active" id="control-sidebar-home-tab">
+            <h3 class="control-sidebar-heading">Recent Activity</h3>
+            <ul class="control-sidebar-menu">
+              <li>
+                <a href="javascript::;">
+                  <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+                  <div class="menu-info">
+                    <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+                    <p>Will be 23 on April 24th</p>
+                  </div>
+                </a>
+              </li>
+            </ul><!-- /.control-sidebar-menu -->
+
+            <h3 class="control-sidebar-heading">Tasks Progress</h3>
+            <ul class="control-sidebar-menu">
+              <li>
+                <a href="javascript::;">
+                  <h4 class="control-sidebar-subheading">
+                    Custom Template Design
+                    <span class="label label-danger pull-right">70%</span>
+                  </h4>
+                  <div class="progress progress-xxs">
+                    <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+                  </div>
+                </a>
+              </li>
+            </ul><!-- /.control-sidebar-menu -->
+
+          </div><!-- /.tab-pane -->
+          <!-- Stats tab content -->
+          <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div><!-- /.tab-pane -->
+          <!-- Settings tab content -->
+          <div class="tab-pane" id="control-sidebar-settings-tab">
+            <form method="post">
+              <h3 class="control-sidebar-heading">General Settings</h3>
+              <div class="form-group">
+                <label class="control-sidebar-subheading">
+                  Report panel usage
+                  <input type="checkbox" class="pull-right" checked="">
+                </label>
+                <p>
+                  Some information about this general settings option
+                </p>
+              </div><!-- /.form-group -->
+            </form>
+          </div><!-- /.tab-pane -->
+        </div>
+      </aside>
+
+      <div class="control-sidebar-bg" style="position: fixed; height: auto;"></div>
+
+  </div><!-- ./wrapper -->
+
+</body>
+</html>

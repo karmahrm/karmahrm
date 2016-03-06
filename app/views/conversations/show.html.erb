@@ -1,0 +1,33 @@
+<% page_header "Conversation" %>
+<p>Chatting with
+  <%= render 'conversations/participants', conversation: @conversation %>
+</p>
+<div class="panel panel-default">
+  <div class="panel-heading"><%= @conversation.subject %></div>
+
+  <div class="panel-body">
+    <div class="messages">
+      <% @conversation.receipts_for(current_user).includes(:message=> [:sender]).each do |receipt| %>
+        <div class="media">
+          <% message = receipt.message %>
+          <div class="media-left">
+            <%= gravatar_tag message.sender.email,:size=>30 %>
+          </div>
+
+          <div class="media-body">
+            <h6 class="media-heading"><%= message.sender.name %>
+              says at <%= distance_of_time_in_words_to_now message.created_at.strftime("%-d %B %Y, %H:%M:%S") %></h6>
+            <%= message.body %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= form_tag reply_conversation_path(@conversation), method: :post do %>
+  <div class="form-group">
+    <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: 'Type something...', required: true %>
+  </div>
+  <%= submit_tag "Send Message", class: 'btn btn-primary' %>
+<% end %>

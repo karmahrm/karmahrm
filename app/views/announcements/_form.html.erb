@@ -1,0 +1,19 @@
+<%= simple_form_for(@announcement) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :content %>
+    <%#= f.input :attachments_count %>
+    <%#= f.input :limit_to_users %>
+    <%= f.input :start_delivering_at,as: :bootstrap_datepicker %>
+    <%= f.input :stop_delivering_at,as: :bootstrap_datepicker %>
+    <%= f.simple_fields_for :announcement_attachments do |i| %>
+      <%= i.input :attachment, as: :file %>
+  <% end %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

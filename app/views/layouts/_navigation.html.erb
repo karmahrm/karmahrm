@@ -1,0 +1,123 @@
+<!-- Sidebar -->
+<div class="nav-area">
+  <div  class="masapp-container" mas-lpanel-effect="shrink">
+    <aside class="mas-menu">
+      <ul class="nav menulist">
+        <li>
+          <a href="/dashboard" class="void">
+          <i class="fa fa-square"></i>
+          <span class="menu-text">Dashboard</span>
+          <span class="selected"></span>
+          </a>
+        </li>
+        <li class="mas-has-menu opened">
+          <a href="/employees" class="void">
+            <i class="fa fa-users"></i>
+            <span class="menu-text">Employees</span>
+            <span class="selected"></span>
+          </a>
+          <ul style="display: block;" class="mas-sub-menu">
+            <li>
+              <a href="/employees/new" class="void">
+                <span class="menu-text">New</span>
+                <span class="selected"></span>
+              </a>
+            </li>
+            <li>
+              <a href="/departments" class="void">
+                <span class="menu-text">Departments</span>
+                <span class="selected"></span>
+              </a>
+            </li>
+            <li>
+              <a href="/teams" class="void">
+                <span class="menu-text">Teams</span>
+                <span class="selected"></span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="void">
+          <i class="fa fa-rocket"></i>
+          <span class="menu-text">Apprisal</span>
+          <span class="label sul">New</span>
+          <span class="selected"></span>
+          </a>
+        </li>
+        <li>
+          <a href="/recruitments" class="void">
+          <i class="fa fa-user-plus"></i>
+          <span class="menu-text">Recruitment</span>
+          <span class="selected"></span>
+          </a>
+        </li>
+        <li>
+          <a href="/news" class="void">
+          <i class="fa fa-newspaper-o"></i>
+          <span class="menu-text">News</span>
+          <span class="selected"></span>
+          </a>
+        </li>
+        <li class="mas-has-menu opened">
+          <a href="#" class="void">
+          <i class="fa fa-comment"></i>
+          <span class="menu-text">Chat</span>
+          <span class="selected"></span>
+          </a>
+          <ul style="display: block;" class="mas-sub-menu">
+            <li>
+              <a href="#" class="void">
+              <span class="menu-text">Manga</span>
+              <span class="label sul">Updated</span>
+              <span class="selected"></span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="void">
+              <span class="menu-text">Teams</span>
+              <span class="selected"></span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="void">
+              <span class="menu-text">uganda</span>
+              <span class="selected"></span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="mas-has-menu">
+          <a href="#" class="void">
+          <i class="fa fa-language"></i>
+          <span class="menu-text">Q & A</span>
+          <span class="selected"></span>
+          </a>
+          <ul class="mas-sub-menu">
+            <li>
+              <a href="#" class="void">
+              <span class="menu-text">Questions</span>
+              <span class="selected"></span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="void">
+              <span class="menu-text">Answers</span>
+              <span class="selected"></span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <% ActsAsPluggable::Plugin.all.values.each do |plugin| %>
+        <li>
+          <%= link_to :controller=>plugin.menu[:controller],:action=>plugin.menu[:action] do%>
+            <i class="fa fa-square"></i>
+            <span class="menu-text"><%= plugin.title%></span>
+            <span class="selected"></span>
+          <% end %>
+        </li>
+        <% end %>
+      </ul>
+    </aside>
+  </div>
+</div>

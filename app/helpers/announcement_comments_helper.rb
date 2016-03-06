@@ -1,0 +1,2 @@
+module AnnouncementCommentsHelper
+end

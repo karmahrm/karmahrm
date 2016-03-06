@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @announcement.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @announcement.content %>
+</p>
+
+<p>
+  <strong>Attachments count:</strong>
+  <%= @announcement.attachments_count %>
+</p>
+
+<p>
+  <strong>Limit to users:</strong>
+  <%= @announcement.limit_to_users %>
+</p>
+
+<p>
+  <strong>Start delivering at:</strong>
+  <%= @announcement.start_delivering_at %>
+</p>
+
+<p>
+  <strong>Stop delivering at:</strong>
+  <%= @announcement.stop_delivering_at %>
+</p>
+
+<%= render partial: "announcement_comments/new" %>
+<div class="col-md-12">
+  <div class="blog-comment">
+    <h3 class="text-success">Comments</h3>
+    <ul class="comments" id="comments">
+      <%= render @announcement_comments %>
+    </ul>
+  </div>
+</div>
+<%= link_to 'Edit', edit_announcement_path(@announcement) %> |
+<%= link_to 'Back', announcements_path %>

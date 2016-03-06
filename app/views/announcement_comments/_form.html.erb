@@ -1,0 +1,4 @@
+<%= simple_form_for([@announcement, @announcement.comments.build], remote: true) do |f| %>
+  <%= f.input :content %>
+  <%= f.button :submit %>
+<% end %>

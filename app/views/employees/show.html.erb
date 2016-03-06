@@ -1,0 +1,105 @@
+<% build_breadcrumb @employee %>
+<% page_header "Profile" %>
+<% page_header_description ""%>
+<div class="pull-right">
+	<%= button 'Message', context: :info do %>
+		<%= link_to 'Message', new_message_path(employee: @employee) %>
+	<% end %>
+	<%= button 'Contact', context: :info %>
+	<%= dropdown 'Menu', groupable: true,context: :info do %>
+	  <%= link_to 'Home', root_path %>
+	  <%= link_to 'Employees', employees_path %>
+	<% end %>
+
+	<%= dropdown 'Profile', groupable: true,context: :info do %>
+	  <%= link_to 'Edit Profile', edit_employee_path(@employee) %>
+		<%= link_to "Change your password", edit_user_path %>
+	<% end %>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-5 toppad pull-right col-md-offset-3">
+      <%#= link_to "edit" ,edit_employee_path(@employee) %><br>
+			<!-- <p class=" text-info"><%= Time.now %></p> -->
+		</div>
+		<div class=
+		"col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+		<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class="panel-title"><%= @employee.first_name %></h3>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div align="center" class="col-md-3 col-lg-3">
+              <%= gravatar_tag @employee.email, :size => 70 %>
+            </div>
+						<div class=" col-md-9 col-lg-9">
+							<table class="table table-user-information">
+								<tbody>
+									<tr>
+										<td>Department:</td>
+										<td><%= @employee.department.name %></td>
+									</tr>
+									<tr>
+										<td>Hire date:</td>
+										<td><%= @employee.date_of_join %></td>
+									</tr>
+									<tr>
+										<td>Date of Birth</td>
+										<td><%= @employee.date_of_birth %></td>
+									</tr>
+									<tr>
+										<td></td>
+									</tr>
+									<tr>
+										<td>Gender</td>
+										<td><%= @employee.gender %></td>
+									</tr>
+									<tr>
+										<td>Manager</td>
+										<td>
+                      <%= @employee.manager.try(:name) %>
+											<%= render partial: "change_manager",locals: {employee: @employee,employees:@employees} %>
+                    </td>
+									</tr>
+									<tr>
+										<td>Home Address</td>
+										<td><%#= @employee.address %></td>
+									</tr>
+									<tr>
+										<td>Email</td>
+										<td>
+											<a href="mailto:<%= @employee.email %>"><%= @employee.email %></a>
+										</td>
+									</tr>
+									<tr>
+										<td>Phone Number</td>
+										<td>123-4567-890(Landline)<br>
+										<br>
+										555-4567-890(Mobile)</td>
+									</tr>
+								</tbody>
+							</table>
+              <!-- <a class="btn btn-primary" href="#">My Sales Performance</a> -->
+							<!-- <a class="btn btn-primary" href="#">Team Sales Performance</a> -->
+						</div>
+					</div>
+				</div>
+				<div class="panel-footer">
+					<a class="btn btn-sm btn-primary" data-original-title="Broadcast Message"
+					data-toggle="tooltip" type="button">
+            <i class="glyphicon glyphicon-envelope"></i>
+          </a>
+          <span class="pull-right">
+            <a class="btn btn-sm btn-warning" data-original-title="Edit this user" data-toggle="tooltip" href="edit.html" type="button">
+              <i class="glyphicon glyphicon-edit"></i>
+            </a>
+            <a class="btn btn-sm btn-danger" data-original-title="Remove this user" data-toggle="tooltip" type="button">
+              <i class="glyphicon glyphicon-remove"></i>
+            </a>
+          </span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

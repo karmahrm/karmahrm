@@ -1,0 +1,12 @@
+  <li class="clearfix">
+    <%= gravatar_tag announcement_comment.user.email, :size => 70,:html=>{:class=>"avatar"} %>
+    <div class="post-comments">
+        <p class="meta"><%= time_ago_in_words(announcement_comment.created_at) %>
+          <a href="#"><%= announcement_comment.user.name%></a> says :
+          <i class="pull-right"><a href="#"><small>Reply</small></a></i>
+        </p>
+        <p>
+            <%= announcement_comment.content %>
+        </p>
+    </div>
+  </li>

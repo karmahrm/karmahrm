@@ -1,0 +1,25 @@
+<% page_header "Your Conversations" %>
+<% page_header_description "Read and send messages"%>
+<%= link_to "new message " ,new_message_path,class: "btn btn-primary" %>
+
+<div class="row">
+  <div class="col-sm-3">
+    <ul class="nav nav-pills nav-stacked">
+      <%= mailbox_section 'inbox', @box %>
+      <%= mailbox_section 'sent', @box %>
+      <%= mailbox_section 'trash', @box %>
+    </ul>
+  </div>
+
+ <div class="col-sm-9">
+  <% if @box == 'trash' %>
+    <p><%= link_to 'Empty trash', empty_trash_conversations_path, class: 'btn btn-danger', method: :delete,
+                   data: {confirm: 'Are you sure?'} %></p>
+  <% end %>
+  <ul class="list-group">
+    <%= render partial: 'conversations/conversation', collection: @conversations %>
+  </ul>
+
+  <%= will_paginate %>
+</div>
+</div>

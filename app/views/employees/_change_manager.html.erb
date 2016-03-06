@@ -1,0 +1,11 @@
+<%= modal title: 'Change Manager', id: 'modal', button: {class: :en} do %>
+  <div class="modal-body">
+    <%= simple_form_for employee,url: change_manager_employee_path(employee) do |f| %>
+      <%= f.input :manager_id,collection: @employees %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary">Change</button>
+  </div>
+<% end %>

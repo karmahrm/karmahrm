@@ -1,0 +1,23 @@
+<%# breadcrumb :employees %>
+<% build_breadcrumb %>
+<% page_header "Employees" %>
+<% page_header_description ""%>
+<%unless @employees.nil?%>
+
+<%#= react_component 'Records', { data: @employees } %>
+
+<% end %>
+
+<% search_form_for @q,:builder => SimpleForm::FormBuilder,as: 'user_inline',wrapper: :inline_form,html: { class: 'form-inline' } do |f| %>
+  <%# FIXME: fix this Association %>
+  <%#= f.input :date_of_join , as: :date %>
+  <%= f.input :user_first_name_cont,label: "name contains" %>
+  <%= f.input :department_name_cont%>
+  <%= f.submit %>
+<% end %>
+<%= link_to "CSV", employees_path(format: "csv") %> 
+<%= render partial: "ransack_table" %>
+
+
+<%= link_to "add employee " ,new_employee_path %>
+<br>

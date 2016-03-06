@@ -1,0 +1,96 @@
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+
+    <!-- Sidebar user panel (optional) -->
+    <div class="user-panel">
+      <div class="pull-left image">
+        <%= image_tag current_user.avatar.url(:thumb),:class=>"img-circle" %>
+        <!-- <img src="/assets/user2-160x160.jpg" class="img-circle" alt="User Image" /> -->
+      </div>
+      <div class="pull-left info">
+        <p> <%= current_user.name %></p>
+        <!-- Status -->
+        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+      </div>
+    </div>
+
+    <!-- search form (Optional) -->
+    <form action="/search" method="get" class="sidebar-form">
+      <div class="input-group">
+        <input type="text" name="query" class="form-control" placeholder="Search..."/>
+        <span class="input-group-btn">
+          <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+        </span>
+      </div>
+    </form>
+    <!-- /.search form -->
+
+    <!-- Sidebar Menu -->
+    <ul class="sidebar-menu">
+      <li class="header">HEADER</li>
+        <!-- Optionally, you can add icons to the links -->
+      <!-- <li class="active"><a href="/employees"><i class='fa fa-users'></i> <span>Employees</span></a></li> -->
+      <li class="treeview">
+        <a href="/employees"><i class='fa fa-users'></i> <span>Employees</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <ul class="treeview-menu">
+          <li><a href="/employees/new">New Employee</a></li>
+          <li><a href="/employees">Employees</a></li>
+          <li><a href="/departments">Departments</a></li>
+          <li><a href="/teams">Teams</a></li>
+        </ul>
+      </li>
+      <li><a href="/calendar"><i class='fa fa-calendar'></i> <span>Calendar</span></a></li>
+      <li><a href="/conversations"><i class='fa fa-comment'></i> <span>Conversations</span></a></li>
+      <li><a href="/announcements"><i class='fa fa-newspaper-o'></i> <span>Announcements</span></a></li>
+      <li class="treeview">
+        <a href="/settings"><i class='fa fa-cogs'></i> <span>Settings</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <ul class="treeview-menu">
+          <li><a href="/profile/account">Account</a></li>
+          <li><a href="/oauth/applications">Applications</a></li>
+          <li><a href="/profile/notifications">Notifications</a></li>
+          <li><a href="/profile/preferences">Preferences</a></li>
+          <li><a href="/profile/audit_log">Audit Log</a></li>
+          <li><a href="/plugins">Plugins</a></li>
+        </ul>
+      </li>
+      <% ActsAsPluggable::Plugin.all.values.each do |plugin| %>
+        <% if plugin.menu[:submenus].blank?%>
+          <li>
+            <% #FIXME %>
+            <% unless params["controller"].include? "/" %>
+              <%= link_to plugin.menu[:url] do%>
+                <i class="<%= plugin.menu[:class] %>"></i>
+                <span class="menu-text"><%= plugin.menu[:text]%></span>
+              <% end %>
+            <% end %>
+          </li>
+        <% else %>
+          <li class="treeview">
+            <%= link_to "#" do %>
+              <i class='fa fa-link'></i>
+              <span><%= plugin.menu[:text] %></span>
+              <i class="fa fa-angle-left pull-right"></i>
+            <% end %>
+            <ul class="treeview-menu">
+              <% plugin.menu[:submenus].each do |menu | %>
+                <li>
+                  <% #FIXME %>
+                  <% unless params["controller"].include? "/" %>
+                    <%= link_to menu[:url] do%>
+                      <i class="<%= menu[:class] %>"></i>
+                      <span class="menu-text"><%= menu[:text]%></span>
+                    <% end %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </li>
+        <% end %>
+      <% end %>
+    </ul><!-- /.sidebar-menu -->
+  </section>
+  <!-- /.sidebar -->
+</aside>

@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Calendar Events</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Comments</th>
+      <th>Start at</th>
+      <th>End at</th>
+      <th>Location name</th>
+      <th>Location address</th>
+      <th>Author</th>
+      <th>Calender event</th>
+      <th>Context</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @calendar_events.each do |calendar_event| %>
+      <tr>
+        <td><%= calendar_event.title %></td>
+        <td><%= calendar_event.description %></td>
+        <td><%= calendar_event.comments %></td>
+        <td><%= calendar_event.start_at %></td>
+        <td><%= calendar_event.end_at %></td>
+        <td><%= calendar_event.location_name %></td>
+        <td><%= calendar_event.location_address %></td>
+        <td><%= calendar_event.creator %></td>
+        <td><%= calendar_event.calendar_event %></td>
+        <td><%= calendar_event.context %></td>
+        <td><%= link_to 'Show', calendar_event %></td>
+        <td><%= link_to 'Edit', edit_calendar_event_path(calendar_event) %></td>
+        <td><%= link_to 'Destroy', calendar_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Calendar event', new_calendar_event_path %>

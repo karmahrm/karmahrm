@@ -1,0 +1,10 @@
+<% page_header "Plugins"%>
+<% page_header_description "List of loaded plugins" %>
+<% @plugins.each do |plugin| %>
+  <div class="panel panel-default">
+    <div class="panel-heading"><%= plugin.title %></div>
+    <div class="panel-body">
+      <%= plugin.description %>
+    </div>
+  </div>
+<% end %>

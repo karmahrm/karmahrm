@@ -1,0 +1,30 @@
+<table width= "600" class="table table-borderedtable table-striped table-bordered">
+  <thead>
+    <tr>
+      <%#= content_tag :th, sort_link(@q, :name) %>
+      <%#= content_tag :th, sort_link(@q, :employee_id,'Employee id') %>
+      <%#= content_tag :th, sort_link(@q, :date_of_join) %>
+      <%#= content_tag :th, sort_link(@q, :department_name,'Department name') %>
+      <!-- <th colspan="5"></th> -->
+      <th >sample</th>
+      <th >sample</th>
+      <th >sample</th>
+      <th >sample</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><%= employee.name %></td>
+        <td><%= employee.employee_id %></td>
+        <td><%= employee.date_of_join %></td>
+        <td><%= employee.department.name %></td>
+        <td><%= link_to 'Show', employee %></td>
+        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+        <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @employees %>

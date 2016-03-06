@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: news
+#
+#  id         :integer          not null, primary key
+#  title      :string
+#  details    :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  details: MyText
+
+two:
+  title: MyString
+  details: MyText

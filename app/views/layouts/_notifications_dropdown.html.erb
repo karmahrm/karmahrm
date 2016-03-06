@@ -1,0 +1,26 @@
+<li class="dropdown notifications-menu">
+  <!-- Menu toggle button -->
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    <i class="fa fa-bell-o"></i>
+    <span class="label label-warning"><%= notifications_count %></span>
+  </a>
+  <ul class="dropdown-menu">
+    <li class="header">You have <%= notifications_count %> notifications</li>
+    <li>
+      <!-- Inner Menu: contains the notifications -->
+      <ul class="menu">
+        <% current_users_notifications.each do | notification | %>
+        <li><!-- start notification -->
+          <%= link_to notification_path(notification)  do %>
+            <i class="fa fa-users text-aqua"></i>
+            <%= notification.content %>
+          <% end %>
+        </li><!-- end notification -->
+        <% end %>
+      </ul>
+    </li>
+    <li class="footer">
+      <%= link_to "View all",notifications_path %>
+    </li>
+  </ul>
+</li>

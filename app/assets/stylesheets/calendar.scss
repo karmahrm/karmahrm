@@ -1,0 +1,40 @@
+// Place all the styles related to the calendar controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.week{
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+  background-color: #DDD;
+}
+.week div {
+  display: table-cell;
+  height: 110px;
+  width: 110px;
+  border-style: solid;
+  border-collapse: collapse;
+  border-width: 1px;
+  border-color: #999;
+  background-color: #FFF;
+  padding: 5px;
+  text-align: right;
+}
+.week .today {
+  color: red;
+  text-decoration: bold;
+  background-color: #D7F2FF;
+}
+.week .other-month {
+  color: #CCC;
+}
+.calendar_header span {
+    width: 110px;
+    border-collapse: collapse;
+    border-width: 1px;
+    border-color: grey;
+    display: table-cell;
+    /* border-color: black; */
+}
+.week div:hover {
+    background-color: #999;
+}

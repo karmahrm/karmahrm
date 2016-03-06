@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Simplehr</title>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<div class=" sam-app">
+			<div class="maspanel-min menu-definer">
+				<%= render partial: "layouts/navigation" %>
+				<!-- Content Area -->
+				<div   class="main-content">
+					<div class="header row">
+						<!-- Search Form -->
+						<div class="col-md-7">
+							<div class="search-box">
+								<a href="#" class="menu-toggler"><span class="fa fa-lg fa-navicon"></span></a>
+								<form class="" action="/employees" method="get">
+									<div class="input-group">
+										<%= text_field_tag :query, params[:query], class: "search-query form-control",placeholder: "Search" %>
+										<!-- <input type="text" class="search-query form-control" name="q[name_cont]" placeholder="Search" /> -->
+										<span class="input-group-btn">
+										<button class="btn btn-search" type="button">
+										<span class=" glyphicon glyphicon-search"></span>
+										</button>
+										</span>
+									</div>
+							</div>
+							</form>
+						</div>
+						<!-- Notification -->
+						<div class="col-md-2 nopadding">
+							<ul class="notifications">
+								<li>
+									<button class="noti-btn btn pull-left  dropdown-toggle" type="button" id="mail-notification-box" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+									<span class="glyphicon glyphicon-envelope"></span>
+									<span class="count">5</span>
+									</button>
+									<div class="dropdown-menu mas-dropdown mail-notification-box " aria-labelledby="mail-notification-box">
+										<ul class="content">
+											<li class="mail">
+												<p class="title">Sobin Cheriyandi</p>
+												<p class="subject">Leave Application approved</p>
+												<p class="timedate">Yesterday at 11.25 pm</p>
+											</li>
+											<li class="mail">
+												<p class="title">Aboobaker MK</p>
+												<p class="subject">Apprisal process initiated by John Doe</p>
+												<p class="timedate">25 - 12 - 2015 at 6.00 am</p>
+											</li>
+											<li class="mail">
+												<p class="title">Sobin Cheriyandi</p>
+												<p class="subject">Leave Application approved</p>
+												<p class="timedate">Yesterday at 11.25 pm</p>
+											</li>
+											<li class="mail-footer">
+												<a href="/conversations" class="view-all"> View all </a>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li>
+									<button class="noti-btn btn pull-left dropdown-toggle" type="button" id="notification-box" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+									<span class="glyphicon glyphicon-bell"></span>
+									</button>
+									<ul class="dropdown-menu mas-dropdown" aria-labelledby="notification-box">
+										<li><a href="#">Action</a></li>
+										<li><a href="#">Another action</a></li>
+										<li><a href="#">Something else here</a></li>
+										<li><a href="#">Separated link</a></li>
+									</ul>
+								</li>
+								<li>
+									<button class="noti-btn btn pull-left  dropdown-toggle" type="button" id="mail-notification-box" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+									<span class="glyphicon glyphicon-comment"></span>
+									<span class="count">2</span>
+									</button>
+									<div class="dropdown-menu mas-dropdown" aria-labelledby="mail-notification-box">
+										<h1>dddddddd</h1>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<!-- Profile -->
+						<div class="col-md-3 profile nopadding ">
+							<div class="row">
+								<div class="col-md-2  ">
+									<div class="avatar">
+										<%= image_tag 'dummy-img/photo.jpg'%>
+										<!-- <img src="dummy-img/photo.jpg" alt="" /> -->
+									</div>
+								</div>
+								<div class="col-md-7  ">
+									<div class="details">
+										<% if user_signed_in? %>
+										<span class="name">
+										<%= link_to current_user.name,employee_path(current_user.employee) %>
+										</span>
+										<span class="mail">
+										<%= current_user.email %>
+										</span>
+										<% end %>
+									</div>
+								</div>
+								<div class="col-md-2 nopadding  ">
+									<% if user_signed_in? %>
+									<%= link_to '', destroy_user_session_path, method: :delete, :class => 'logout glyphicon glyphicon-log-out'  %>
+									<% end %>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="page-container">
+							<div class="page-header">
+								<h1>
+									<%= yield :page_header %>
+								</h1>
+							</div>
+							<%= breadcrumbs pretext: "You are here: ",separator: " &rsaquo; ",style: :bootstrap %>
+							<%= yield %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<p class="navbar-text pull-right"></p>
+		<% if notice %>
+		<p class="alert alert-success">
+			<%= notice %>
+		</p>
+		<% end %>
+		<% if alert %>
+		<p class="alert alert-danger">
+			<%= alert %>
+		</p>
+		<% end %>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('.menu-toggler').click(function() {
+					$('.menu-definer').toggleClass('maspanel-min')
+				});
+				$('#query').typeahead({name: "book",remote: "/employees/autocomplete?query=%QUERY"});
+			});
+
+		</script>
+	</body>
+</html>

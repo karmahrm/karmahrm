@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Notifications</h1>
+<%#= render @notifications %>
+
+<% @notifications.each do |notification| %>
+  <div class="well">
+    <%= link_to notification.content,notification_path(notification) %>
+  </div>
+<% end %>
+
+<br>

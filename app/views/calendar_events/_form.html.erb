@@ -1,0 +1,20 @@
+<%= simple_form_for(@calendar_event) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :comments %>
+    <%= f.input :start_at,as: :bootstrap_datepicker %>
+    <%= f.input :end_at, as: :bootstrap_datepicker%>
+    <%= f.input :location_name %>
+    <%= f.input :location_address %>
+    <%#= f.association :creator %>
+    <%#= f.association :calendar_event %>
+    <%#= f.association :context %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

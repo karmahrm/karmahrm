@@ -1,0 +1,2 @@
+class AnnouncementAttachmentsController < ApplicationController
+end

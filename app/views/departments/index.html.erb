@@ -1,0 +1,27 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <td>
+        Name
+      </td>
+      <td>
+        Number of employees
+      </td>
+      <td>
+        Actions
+      </td>
+    </tr>
+  </thead>
+  <% @departments.each do | department| %>
+    <tr>
+      <td>
+        <%= link_to department.name ,department_path(department) %>
+      </td>
+      <td>
+        <%= department.employees.count %>
+      </td>
+      <td>
+      </td>
+    </tr>
+    <% end %>
+</table>

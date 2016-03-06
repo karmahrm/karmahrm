@@ -1,0 +1,442 @@
+/*!
+ * Start MASmenu by MAK
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+ .mas-menu {
+   background: #fff none repeat scroll 0 0;
+   color: #7e7e7e;
+   width: 230px;
+   top: 0;
+   position: absolute;
+   float: left;
+   min-height: 100%;
+   z-index: 100;
+   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+   ul {
+     margin: 0;
+     padding: 0;
+   }
+   .nav-level {
+     padding: 5px 15px;
+     font-weight: bold;
+   }
+   .menulist > li.mas-has-menu > ul.mas-sub-menu {
+     list-style: none;
+   }
+   .nav-level:first-child {
+     border-top: 0 solid #efefef;
+   }
+   .menulist {
+     & > li > a {
+       background: #fff;
+       border-top: 1px solid #efefef;
+       color: #7e7e7e;
+       display: block;
+       font-size: 13px;
+       font-weight: 500;
+       padding: 10px;
+       position: relative;
+     }
+     & > li:last-child > a {
+       border-bottom: 1px solid #efefef;
+     }
+     & > li:first-child > a {
+       border-top: 0 solid #efefef;
+     }
+     & > li > a:hover,
+     & > li > a:focus {
+       color: #000;
+       background: $theme_light_x2;
+     }
+     & > li.active > a {
+       background: $theme_light_x2;
+       border-top: 1px solid #efefef;
+       color: #000;
+     }
+     & > li > a > i {
+       display: inline;
+       font-size: 14px;
+       padding-right: 6px;
+     }
+     & > li > a span.menu-text {
+       display: inline-block;
+     }
+     & > li.mas-has-menu > a:after {
+       font-family: FontAwesome;
+       content: "\f107";
+       font-size: 15px;
+       position: relative;
+       float: right;
+     }
+     & > li.mas-has-menu.opened > a {
+       background: $theme_light_x2;
+       color: #000;
+     }
+     & > li.mas-has-menu.opened > a:after {
+       font-family: FontAwesome;
+       content: "\f106" !important;
+       font-size: 15px;
+       float: right;
+       position: relative;
+     }
+     & > li.mas-has-menu li.mas-has-menu > a:after {
+       font-family: FontAwesome;
+       content: "\f103";
+       font-size: 15px;
+       position: relative;
+       float: right;
+     }
+     & > li.mas-has-menu li.mas-has-menu.opened > a:after {
+       font-family: FontAwesome;
+       content: "\f102";
+       font-size: 15px;
+       position: relative;
+       float: right;
+     }
+     & ul {
+       background: #fafafa;
+       box-shadow: -1px 2px 3px 0 rgba(0, 0, 0, 0.2);
+     }
+     & ul.mas-sub-menu li > a {
+       background: transparent;
+       border-top: 1px solid #efefef;
+       color: #7e7e7e;
+       display: block;
+       font-size: 13px;
+       font-weight: 500;
+       padding: 10px;
+       position: relative;
+     }
+     & > li.mas-has-menu > ul.mas-sub-menu {
+       display: none;
+     }
+     & li.mas-has-menu > ul.mas-sub-menu li > a:hover,
+     & li.mas-has-menu > ul.mas-sub-menu li > a:focus {
+       text-decoration: none;
+       color: #000;
+       background: $theme_light_x2;
+     }
+     & > li.mas-has-menu > ul ul {
+       display: none;
+     }
+     & > li.mas-has-menu.active > ul {
+       display: block;
+     }
+     & > li.mas-has-menu.active > ul > li.mas-has-menu.active > ul {
+       display: block;
+     }
+     & > li.mas-has-menu.active > ul > li.mas-has-menu.active > ul > li.mas-has-menu.active > ul {
+       display: block;
+     }
+     & > li.mas-has-menu > ul > li > a span.menu-text {
+       padding-left: 15px;
+       position: relative;
+     }
+     & > li.mas-has-menu > ul.mas-sub-menu {
+       list-style: outside none none;
+     }
+     & > li.mas-has-menu li.mas-has-menu > ul.mas-sub-menu {
+       list-style: outside none none;
+     }
+     & > li.mas-has-menu > ul.mas-sub-menu {
+       list-style: outside none none;
+     }
+     & > li.mas-has-menu > ul > li.mas-has-menu > ul > li > a span.menu-text {
+       padding-left: 25px;
+       position: relative;
+     }
+     & > li.mas-has-menu > ul > li.mas-has-menu > ul > li > ul > li > a span.menu-text {
+       padding-left: 35px;
+       position: relative;
+     }
+     & > li.mas-has-menu > ul > li.mas-has-menu > ul > li > ul > li > ul > li > a span.menu-text {
+       padding-left: 40px;
+       position: relative;
+     }
+     & > li.mas-has-menu > ul.mas-sub-menu > li > a span.menu-text:before {
+       font-family: FontAwesome;
+       content: "\f0da";
+       font-size: 14px;
+       position: relative;
+       float: left;
+       left: 4px;
+     }
+     & > li.mas-has-menu > ul.mas-sub-menu > li.mas-has-menu > ul.mas-sub-menu > li > a span.menu-text:before {
+       font-family: FontAwesome;
+       content: "\f0da";
+       font-size: 12px;
+       position: relative;
+       float: left;
+       left: 15px;
+     }
+     & > li.mas-has-menu > ul.mas-sub-menu > li.mas-has-menu > ul.mas-sub-menu > li > a span.menu-text:before {
+       font-family: FontAwesome;
+       content: "\f0da";
+       font-size: 14px;
+       position: relative;
+       float: left;
+       left: 18px;
+     }
+     & > li.mas-has-menu > ul.mas-sub-menu > li.mas-has-menu > ul.mas-sub-menu > li.mas-has-menu > ul.mas-sub-menu > li > a span.menu-text:before {
+       font-family: FontAwesome;
+       content: "\f0da";
+       font-size: 12px;
+       position: relative;
+       float: left;
+       left: 30px;
+     }
+     & li.active > a .selected {
+       border-left: 7px solid #7e7e7e;
+       display: inline-block;
+       height: 0;
+       position: absolute;
+       right: 0;
+       top: 13px;
+       vertical-align: middle;
+       width: 0;
+     }
+     & li.mas-has-menu.active > a .selected {
+       display: none;
+     }
+     & li a .label {
+       border-radius: 0.25em;
+       color: #7e7e7e;
+       display: inline;
+       font-size: 75%;
+       font-weight: 700;
+       line-height: 1;
+       padding: 4px 3px;
+       position: absolute;
+       right: 10px;
+       text-align: center;
+       vertical-align: baseline;
+       white-space: nowrap;
+     }
+   }
+ }
+ .sul {
+   background-color: $theme_light_x2;
+ }
+ .mas-menu {
+   position: absolute;
+ }
+ .main-content {
+   margin-left: 245px;
+   position: relative;
+ }
+ .maspanel-min {
+   .mas-menu {
+     width: 50px;
+     .nav-level {
+       display: none;
+     }
+     .menulist {
+       & > li > a span.menu-text {
+         display: none;
+       }
+       & > li.mas-has-menu > a:after {
+         display: none;
+       }
+       & > li > a > i {
+         display: inline;
+         font-size: 15px;
+         padding-left: 6px;
+         padding-right: 6px;
+       }
+       & > li:hover > a,
+       & > li:focus > a {
+         display: block;
+         position: relative;
+         width: 230px;
+         margin-bottom: -1px;
+         border-radius: 0 4px 4px 0;
+       }
+       & > li:hover > a,
+       & > li:focus > a {
+         border-radius: 0 4px 4px 0;
+       }
+       & > li.mas-has-menu:hover > a,
+       & > li.mas-has-menu:focus > a {
+         border-radius: 0 4px 0 0;
+         background: $theme_light_x2;
+       }
+       & > li:hover > a span.menu-text,
+       & > li:focus > a span.menu-text {
+         display: inline-block;
+         position: absolute;
+         left: 52px;
+       }
+       & ul.mas-sub-menu li {
+         list-style: none;
+       }
+       & > li.mas-has-menu > ul.mas-sub-menu {
+         display: none !important;
+         position: absolute;
+         left: 50px;
+         width: 180px;
+       }
+       & > li.mas-has-menu:hover > ul.mas-sub-menu,
+       & > li.mas-has-menu:focus > ul.mas-sub-menu {
+         display: block !important;
+         border-right: 1px solid #efefef;
+         width: 180px;
+         left: 50px;
+       }
+       & > li.mas-has-menu > ul.mas-sub-menu ul.mas-sub-menu {
+         display: none !important;
+         position: absolute;
+         width: 180px;
+         left: 0;
+       }
+       & > li.mas-has-menu:hover > ul.mas-sub-menu ul.mas-sub-menu,
+       & > li.mas-has-menu:focus > ul.mas-sub-menu ul.mas-sub-menu {
+         display: none !important;
+         left: 0;
+       }
+       & > li.mas-has-menu > ul.mas-sub-menu > li.mas-has-menu:hover > ul.mas-sub-menu,
+       & > li.mas-has-menu > ul.mas-sub-menu > li.mas-has-menu:focus > ul.mas-sub-menu {
+         display: block !important;
+         position: relative;
+         left: 0;
+       }
+       & > li.mas-has-menu > ul.mas-sub-menu > li.mas-has-menu > ul.mas-sub-menu > li.mas-has-menu:hover > ul.mas-sub-menu,
+       & > li.mas-has-menu > ul.mas-sub-menu > li.mas-has-menu > ul.mas-sub-menu > li.mas-has-menu:focus > ul.mas-sub-menu {
+         display: block !important;
+         position: relative;
+         left: 0;
+       }
+       & > li.mas-has-menu li.mas-has-menu > a:after {
+         display: none;
+       }
+       & > li.mas-has-menu li.mas-has-menu > a:after {
+         font-family: FontAwesome;
+         content: "\f103";
+         font-size: 15px;
+         position: relative;
+         float: right;
+         display: block;
+       }
+       & > li.mas-has-menu li.mas-has-menu:hover > a:after,
+       & > li.mas-has-menu li.mas-has-menu:focus > a:after {
+         font-family: FontAwesome;
+         content: "\f102";
+         font-size: 15px;
+         position: relative;
+         float: right;
+         display: block;
+       }
+       & li.mas-has-menu.active > li.active a .selected {
+         display: block;
+       }
+       & > li.active:hover > a .selected,
+       & > li.active:focus > a .selected {
+         display: none;
+       }
+       & > li.mas-has-menu > ul.mas-sub-menu > li.mas-has-menu > ul.mas-sub-menu li > a span.menu-text {
+         padding-left: 15px;
+         position: relative;
+       }
+       & > li.mas-has-menu > ul.mas-sub-menu > li.mas-has-menu > ul.mas-sub-menu > li > a span.menu-text:before {
+         left: 4px;
+       }
+       & > li.mas-has-menu > ul.mas-sub-menu > li.mas-has-menu > ul.mas-sub-menu > li.mas-has-menu > ul.mas-sub-menu > li > a span.menu-text:before {
+         left: 4px;
+       }
+       & li .label {
+         display: none;
+       }
+       & li:hover a .label {
+         display: block;
+         position: absolute;
+         right: 5px;
+         top: 10px;
+       }
+       & > li.mas-has-menu.opened > a {
+         background: $theme_light_x2;
+         color: #000;
+       }
+     }
+   }
+   .main-content {
+     margin-left: 65px;
+   }
+ }
+ .mas-menu {
+   background: $theme_dark none repeat scroll 0 0;
+   color: #d7e9fc;
+   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+ }
+ .mas-menu .menulist > li > a {
+   background: $theme_dark;
+   border-top: 1px solid $theme_light;
+   color: #d7e9fc;
+   border-right: 1px solid $theme_light;
+ }
+ .mas-menu .menulist > li:last-child > a {
+   border-bottom: 1px solid $theme_light;
+ }
+ .mas-menu .menulist > li:first-child > a {
+   border-top: 0 solid $theme_light;
+ }
+ .mas-menu .menulist > li > a:hover,
+ .mas-menu .menulist > li > a:focus {
+   color: #fff;
+   background: $theme_medium;
+ }
+ .mas-menu .menulist > li.active > a {
+   background: $theme_medium;
+   border-top: 1px solid $theme_light;
+   color: #fff;
+ }
+ .mas-menu .menulist > li.mas-has-menu.opened > a {
+   background: $theme_dark;
+   color: #d7e9fc;
+ }
+ .mas-menu .menulist ul {
+   background: #fafafa;
+   box-shadow: -1px 2px 3px 0 rgba(0, 0, 0, 0.2);
+ }
+ .mas-menu .menulist ul.mas-sub-menu li > a {
+   background: $theme_light_x;
+   border-top: 1px solid $theme_light_x2;
+   color: #d7e9fc;
+ }
+ .mas-menu .menulist li.mas-has-menu > ul.mas-sub-menu li > a:hover,
+ .mas-menu .menulist li.mas-has-menu > ul.mas-sub-menu li > a:focus {
+   color: #fff;
+   background: $theme_light_x2;
+ }
+ .mas-menu .menulist li.active > a .selected {
+   border-right: 7px solid #fff;
+ }
+ .mas-menu .menulist li a .label {
+   color: #d7e9fc;
+ }
+ .maspanel-min .mas-menu {
+   background: $theme_dark;
+   color: #d7e9fc;
+ }
+ .maspanel-min .mas-menu .menulist > li.mas-has-menu:hover > a,
+ .maspanel-min .mas-menu .menulist > li.mas-has-menu:focus > a {
+   border-radius: 0 4px 0 0;
+   background: $theme_medium;
+ }
+ .maspanel-min .mas-menu .menulist > li.mas-has-menu.opened > a {
+   background: $theme_dark;
+   color: #d7e9fc;
+ }
+ .maspanel-min .mas-menu .menulist > li.mas-has-menu.opened > a:hover {
+   background: $theme_medium;
+   color: #fff;
+ }
+ .maspanel-min .mas-menu .menulist > li.mas-has-menu:hover > ul.mas-sub-menu,
+ .maspanel-min .mas-menu .menulist > li.mas-has-menu:focus > ul.mas-sub-menu {
+   border-right: 1px solid $theme_light;
+ }
+ .mas-menu .nav-level {
+   border-top: 1px solid $theme_light;
+ }
+ .mas-menu .nav-level:first-child {
+   border-top: 0 solid $theme_light;
+ }

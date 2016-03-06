@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+  Connected Accounts
+  </div>
+  <div class="panel-body">
+    Click on icon to activate signin with one of the following services
+    <% User.omniauth_providers.each do |provider| %>
+      <%= link_to provider.to_s.titleize, user_omniauth_authorize_path(provider),:class=>"btn btn-lg active"  %>
+      <% if current_user.has_provider?(provider) %>
+        <%= link_to unlink_profile_index_path(:provder=>provider), method: :delete,class: "" do %>
+          <i class="fa fa-close"> </i>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
