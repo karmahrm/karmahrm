@@ -2,6 +2,9 @@
 Simple human resource management system with pluggable features 
 
 [![Code Climate](https://codeclimate.com/github/simplehrm/simplehr/badges/gpa.svg)](https://codeclimate.com/github/simplehrm/simplehr)
+[![Build Status](https://travis-ci.org/simplehrm/simplehr.svg?branch=master)](https://travis-ci.org/simplehrm/simplehr)
+[![Dependency Status](https://gemnasium.com/simplehrm/simplehr.svg)](https://gemnasium.com/simplehrm/simplehr)
+
 ## Installation
 ```
 git clone https://github.com/simplehrm/simplehr
