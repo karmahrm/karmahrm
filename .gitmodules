@@ -1,0 +1,6 @@
+[submodule "plugins/simplehr_feed"]
+	path = plugins/simplehr_feed
+	url = https://github.com/simplehrm/simplehr_feed
+[submodule "plugins/simplehr_discussion"]
+	path = plugins/simplehr_discussion
+	url = https://github.com/simplehrm/simplehr_discussion
