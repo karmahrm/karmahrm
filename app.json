@@ -10,7 +10,10 @@
   "env": {
     "RAILS_ENV": "production",
     "RACK_ENV": "production",
-    "RAILS_SERVE_STATIC_FILES": "true"
+    "TWITTER_KEY": "",
+    "TWITTER_SECRET": "",
+    "LINKEDIN_KEY": "",
+    "LINKEDIN_SECRET": ""
   },
   "addons": ["heroku-postgresql"]
 }
