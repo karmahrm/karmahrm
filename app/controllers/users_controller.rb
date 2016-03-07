@@ -49,7 +49,8 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
-
+  def change_roles
+  end
   private
 
   def user_params

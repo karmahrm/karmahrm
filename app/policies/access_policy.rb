@@ -32,9 +32,9 @@ class AccessPolicy
     # The base role with no additional conditions.
     # Applies to every user.
     #
-    # role :guest do
-    #  can :read, Post
-    #  can :read, Comment
-    # end
+    role :guest do
+     can :read, Announcement
+    #  can :read, 
+    end
   end
 end

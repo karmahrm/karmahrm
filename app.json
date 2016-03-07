@@ -1,0 +1,16 @@
+{
+  "name": "SimpleHr",
+  "description": "Simple Human resource management system in rails",
+  "repository": "https://github.com/simplehrm/simplehr",
+  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "keywords": ["rails","hrm"],
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
+  },
+  "env": {
+    "RAILS_ENV": "production",
+    "RACK_ENV": "production",
+    "RAILS_SERVE_STATIC_FILES": "true"
+  },
+  "addons": ["heroku-postgresql"]
+}
