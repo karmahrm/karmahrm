@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   # Recruitments module
   resources :recruitments do
-    end
+  end
 
   # Employee module
   resources :departments

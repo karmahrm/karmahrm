@@ -25,4 +25,5 @@ class Announcement < ActiveRecord::Base
   #
   accepts_nested_attributes_for :announcement_attachments
   searchkick if SimpleHr.search_kick_enabled?
+  resourcify
 end

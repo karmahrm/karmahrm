@@ -33,6 +33,7 @@
 #
 
 class User < ActiveRecord::Base
+  rolify
 	 devise :database_authenticatable,
  			     # :registerable,
  			     :recoverable,
@@ -49,7 +50,6 @@ class User < ActiveRecord::Base
 	 acts_as_messageable
 	 acts_as_marker
 	 has_many :identities
-	 has_and_belongs_to_many :roles
 	 searchkick if SimpleHr.search_kick_enabled?
 
   def name
