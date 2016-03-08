@@ -9,7 +9,7 @@ before_install:
 before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database simplehr_test;' -U postgres
-  - RAILS_ENV=test bundle exec rake db:migrate test
+  - RAILS_ENV=test bundle exec rake db:migrate spec
 
 notifications:
   email:
