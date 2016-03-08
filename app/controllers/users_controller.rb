@@ -49,8 +49,11 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
-  def change_roles
+
+  def manage_roles
+    @users = User.all.includes(:roles)
   end
+
   private
 
   def user_params

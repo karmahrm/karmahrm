@@ -35,7 +35,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
   resource :user, only: [:edit] do
     collection do
-      patch 'update_password'
+      patch :update_password
+      get :manage_roles
+      post :manage_roles
+    end
+    member do
+      get :manage_roles_user
     end
   end
   resources :profile do
@@ -67,6 +72,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     scope module: :v1 do
       resources :users
+      get '/me' => "credentials#me"
     end
   end
 

@@ -34,7 +34,7 @@ class AccessPolicy
     #
     role :guest do
      can :read, Announcement
-    #  can :read, 
+      #  can :read,
     end
   end
 end
