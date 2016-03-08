@@ -1,12 +1,14 @@
 language: ruby
+services:
+  - postgresql
 rvm:
   - 2.2.2
 before_install:
   - gem update --system
   - gem --version
 before_script:
-  - cp config/database.yml.example config/database.yml
-  - mysql -e 'create database simplehr_test;'
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database simplehr_test;' -U postgres
   - RAILS_ENV=test bundle exec rake db:migrate test
 
 notifications:
