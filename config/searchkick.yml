@@ -2,3 +2,5 @@ development:
   enabled: true
 production:
   enabled: false
+test:
+  enabled: false

@@ -13,5 +13,5 @@
 #
 
 class CommentSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id,:content
 end

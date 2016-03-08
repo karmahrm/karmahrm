@@ -73,6 +73,11 @@ Rails.application.routes.draw do
     namespace :v1 do
       # scope module: :v1 do
       resources :users
+      resources :employees
+      resources :calendar_events
+      resources :announcements
+      resources :notifications
+      resources :departments
       get '/me' => 'credentials#me'
     end
   end

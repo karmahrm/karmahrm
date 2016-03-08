@@ -1,9 +1,9 @@
 module Api
   module V1
-    class UsersController < ApiController
+    class EmployeesController < ApiController
       before_action :doorkeeper_authorize!
       def index
-        render json: User.all
+        render json: Employee.active
       end
     end
   end

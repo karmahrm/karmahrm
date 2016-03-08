@@ -1,9 +1,9 @@
 module Api
   module V1
-    class UsersController < ApiController
+    class NotificationsController < ApiController
       before_action :doorkeeper_authorize!
       def index
-        render json: User.all
+        render json: current_resource_owner.notifications
       end
     end
   end

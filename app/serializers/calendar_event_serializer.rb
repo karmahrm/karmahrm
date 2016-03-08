@@ -20,7 +20,6 @@
 
 class CalendarEventSerializer < ActiveModel::Serializer
   attributes :id, :title, :description, :comments, :start_at, :end_at, :location_name, :location_address
-  has_one :user
-  has_one :calendar_event
-  has_one :context
+  has_one :creator
+  # has_one :context
 end
