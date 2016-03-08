@@ -19,6 +19,7 @@
 #
 
 class CalendarEventsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_calendar_event, only: [:show, :edit, :update, :destroy]
 
   # GET /calendar_events

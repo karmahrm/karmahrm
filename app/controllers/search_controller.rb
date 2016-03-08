@@ -1,4 +1,5 @@
 class SearchController < ApplicationController
+  before_action :authenticate_user!
   def index
     @query = params[:query] || ''
     @users = User.search @query # , execute: false

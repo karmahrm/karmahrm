@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!
   layout 'admin_lte_2'
 
   # Prevent CSRF attacks by raising an exception.

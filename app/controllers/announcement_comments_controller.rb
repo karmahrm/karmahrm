@@ -1,4 +1,5 @@
 class AnnouncementCommentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_announcement_comment, only: [:show, :edit, :update, :destroy]
 
   # GET /announcement_comments

@@ -70,9 +70,10 @@ Rails.application.routes.draw do
 
   root 'dashboard#index'
   namespace :api, defaults: { format: :json } do
-    scope module: :v1 do
+    namespace :v1 do
+      # scope module: :v1 do
       resources :users
-      get '/me' => "credentials#me"
+      get '/me' => 'credentials#me'
     end
   end
 

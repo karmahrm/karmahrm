@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :authenticate_user!
   def create
     auth = request.env['omniauth.auth']
   end
