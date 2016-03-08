@@ -1,1 +1,5 @@
+<% page_header "Search Results" %>
+<h2 class="lead">
+  <strong class="text-danger"><%=  @users.count %></strong> results were found for the search for <strong class="text-danger"><%= @query %></strong>
+</h2>
 <%= render @users %>
