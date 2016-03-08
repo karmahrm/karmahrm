@@ -7,7 +7,7 @@ module SimpleHr
     def to_a
       CalendarWeek.new(@date).to_a.map do |week|
         week.map do |date|
-          [date, DayStyles.new(date).to_s]
+          [date, DayStyles.new(date).to_s,events_for(date)]
         end
       end
     end
@@ -16,6 +16,10 @@ module SimpleHr
 
     def css_classes_for(date)
       [past(date), other_month(date)].compact.join(' ')
+    end
+    #FIXME this logic requires db call for each day !!
+    def events_for(date)
+      CalendarEvent.on_day(date)
     end
   end
   class DayStyles

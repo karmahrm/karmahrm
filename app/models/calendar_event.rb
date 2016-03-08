@@ -27,6 +27,10 @@ class CalendarEvent < ActiveRecord::Base
   validates :description, presence: true
   validates :start_at, date: { before: :end_at }, allow_nil: true
   validates :end_at, date: true, allow_nil: true
+  scope :on_day, ( lambda do |day|
+      where( "start_at <= ? AND end_at>= ?",day,day )
+    end
+  )
   include Rails.application.routes.url_helpers
   def to_ics
     cal = Icalendar::Calendar.new
@@ -39,5 +43,11 @@ class CalendarEvent < ActiveRecord::Base
       e.url = calendar_event_url(self)
     end
     cal.to_ical
+  end
+  def range
+    start_at.to_date .. end_at.to_date
+  end
+  def self.events_in_the_date(date)
+    where("start_at <= #{date} AND end_at>= #{date}")
   end
 end

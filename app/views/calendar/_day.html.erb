@@ -1,3 +1,10 @@
 <div class="<%= day[1]%>" data-day="<%= day[0].strftime('%d')%>" data-date="<%= day[0] %>" >
  <%= day[0].strftime('%d')%>
+ <ul class="events_in_the_date">
+   <% day[2].each do |event|%>
+    <%= link_to calendar_event_path(event) do%>
+      <span class="label label-primary"><%= truncate(event.title,:length=> 15) %></span>
+    <% end%>
+   <% end %>
+ </ul>
 </div>
