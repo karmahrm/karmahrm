@@ -21,7 +21,7 @@ RSpec.describe AnnouncementsController, type: :controller do
   # Announcement. As you add validations to Announcement, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
-    { content: 'hi', title: "title" }
+    { content: 'hi', title: 'title' }
   end
 
   let(:invalid_attributes) do

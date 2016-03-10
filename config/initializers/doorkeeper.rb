@@ -76,6 +76,7 @@ Doorkeeper.configure do
   # communication to the HTTPS protocol so it is wise to keep this enabled.
   #
   # force_ssl_in_redirect_uri !Rails.env.development?
+  force_ssl_in_redirect_uri false
 
   # Specify what grant flows are enabled in array of Strings. The valid
   # strings and the flows they enable are:

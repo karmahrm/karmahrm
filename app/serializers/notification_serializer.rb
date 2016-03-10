@@ -15,5 +15,5 @@
 #
 
 class NotificationSerializer < ActiveModel::Serializer
-  attributes :id,:content,:is_read
+  attributes :id, :content, :is_read
 end

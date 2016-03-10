@@ -15,5 +15,4 @@
 require 'rails_helper'
 
 RSpec.describe 'AnnouncementComments', type: :request do
-  
 end
