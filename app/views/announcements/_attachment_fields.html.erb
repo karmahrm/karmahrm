@@ -1,0 +1,10 @@
+<%#= f.simple_fields_for :announcement_attachments do |i| %>
+  <%#= i.input :attachment, as: :file %>
+<%# end %>
+<p>
+  <%#= i.input :attachment, as: :file %>
+</p>
+<div id="attachment_fields">
+  <%= render :partial => 'attachment', :collection => @announcement.announcement_attachments, :locals => { :f => f } %>
+</div>
+<p><%#= add_attachment_link "Add an attachment" %></p>

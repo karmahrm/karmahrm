@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160307075623) do
+ActiveRecord::Schema.define(version: 20160327044047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -321,6 +321,12 @@ ActiveRecord::Schema.define(version: 20160307075623) do
   add_index "searchjoy_searches", ["search_type", "created_at"], name: "index_searchjoy_searches_on_search_type_and_created_at", using: :btree
   add_index "searchjoy_searches", ["search_type", "normalized_query", "created_at"], name: "index_searchjoy_searches_on_search_type_and_normalized_query_an", using: :btree
 
+  create_table "skills", force: :cascade do |t|
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
@@ -371,6 +377,16 @@ ActiveRecord::Schema.define(version: 20160307075623) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "terminations", force: :cascade do |t|
+    t.integer  "employee_id"
+    t.datetime "date"
+    t.text     "note"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "terminations", ["employee_id"], name: "index_terminations_on_employee_id", using: :btree
+
   create_table "topics", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -418,6 +434,20 @@ ActiveRecord::Schema.define(version: 20160307075623) do
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
+  create_table "web_hooks", force: :cascade do |t|
+    t.string   "type"
+    t.integer  "resource_id"
+    t.string   "resource_type"
+    t.integer  "user_id"
+    t.string   "url"
+    t.boolean  "enable_ssl_verification"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "web_hooks", ["resource_type", "resource_id"], name: "index_web_hooks_on_resource_type_and_resource_id", using: :btree
+  add_index "web_hooks", ["user_id"], name: "index_web_hooks_on_user_id", using: :btree
+
   add_foreign_key "announcement_attachments", "announcements"
   add_foreign_key "auth_tokens", "users"
   add_foreign_key "calendar_events", "calendar_events"
@@ -430,4 +460,6 @@ ActiveRecord::Schema.define(version: 20160307075623) do
   add_foreign_key "posts", "users"
   add_foreign_key "team_memberships", "employees"
   add_foreign_key "team_memberships", "teams"
+  add_foreign_key "terminations", "employees"
+  add_foreign_key "web_hooks", "users"
 end

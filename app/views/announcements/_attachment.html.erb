@@ -1,0 +1,6 @@
+<div class="attachment">
+  <%= f.simple_fields_for :announcement_attachments do |i| %>
+    <%= i.input :attachment, as: :file %>
+    <%= link_to "remove","#",onclick: "$(this).up('.task').remove()" %>
+  <% end %>
+</div>

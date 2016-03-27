@@ -10,7 +10,8 @@
     <%= f.input :stop_delivering_at,as: :bootstrap_datepicker %>
     <%= f.simple_fields_for :announcement_attachments do |i| %>
       <%= i.input :attachment, as: :file %>
-  <% end %>
+    <% end %>
+    <%#= render :partial => 'attachment_fields', :locals => { :f => f } %>
   </div>
 
   <div class="form-actions">

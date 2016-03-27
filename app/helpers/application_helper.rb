@@ -27,4 +27,9 @@ module ApplicationHelper
 	 def current_users_notifications
  		 current_user.notifications.unread.includes(origin: [:origin])
  	end
+	def add_attachment_link(name)
+	  link_to_function name do |page|
+	    page.insert_html :bottom, :attachments, :partial => 'attachment', :object => AnnouncementAttachment.new
+	  end
+	end
 end

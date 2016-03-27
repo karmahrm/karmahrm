@@ -112,6 +112,10 @@ gem 'chosen-rails'
 gem 'date_validator'
 # ActiveModel Associations
 gem 'activemodel-associations'
+#Http party
+gem 'httparty'
+gem 'valid_url'
+
 
 group :production do
   gem 'puma'

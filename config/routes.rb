@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :web_hooks
   resources :search, only: 'index'
 
   # get 'plugins/index'

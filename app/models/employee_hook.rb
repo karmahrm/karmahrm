@@ -1,0 +1,2 @@
+class EmployeeHook < WebHook
+end
