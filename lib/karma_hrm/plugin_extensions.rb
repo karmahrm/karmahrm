@@ -1,4 +1,4 @@
-module SimpleHr
+module KarmaHrm
   module PluginExtensions
     def menu
       @meta_data[:menu]

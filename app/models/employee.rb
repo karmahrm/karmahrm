@@ -56,7 +56,7 @@ class Employee < ActiveRecord::Base
 	 # attr_accessor :country_id
 	 # custom
 	 scope :search_import, -> { includes(:user) }
-	 searchkick if SimpleHr.search_kick_enabled?
+	 searchkick if KarmaHrm.search_kick_enabled?
 	 def create_user
 		 	# do nothing
 		end

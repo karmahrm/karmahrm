@@ -16,8 +16,8 @@ bin/setup
 ```
 ### Installing plugins
 ```
-  git clone https://github.com/simplehrm/simplehr_discussions plugins/simplehr_discussions
-  git clone https://github.com/simplehrm/simplehr_feed plugins/simplehr_feed
+  git clone https://github.com/simplehrm/karmahrm_discussions plugins/karmahrm_discussions
+  git clone https://github.com/simplehrm/karmahrm_feed plugins/karmahrm_feed
   bundle install
 
 ```

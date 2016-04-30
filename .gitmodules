@@ -1,6 +1,6 @@
-[submodule "plugins/simplehr_feed"]
-	path = plugins/simplehr_feed
-	url = https://github.com/simplehrm/simplehr_feed
-[submodule "plugins/simplehr_discussion"]
-	path = plugins/simplehr_discussion
-	url = https://github.com/simplehrm/simplehr_discussion
+[submodule "plugins/karmahrm_feed"]
+	path = plugins/karmahrm_feed
+	url = https://github.com/karmahrm/karmahrm_feed
+[submodule "plugins/karmahrm_discussion"]
+	path = plugins/karmahrm_discussion
+	url = https://github.com/karmahrm/karmahrm_discussion

@@ -1,4 +1,4 @@
-module SimpleHr
+module KarmaHrm
   class Calendar
     def initialize(date = Date.today)
       @date = date

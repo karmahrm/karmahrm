@@ -24,6 +24,6 @@ class Announcement < ActiveRecord::Base
   has_many :comments, class_name: 'AnnouncementComment', as: :origin
   #
   accepts_nested_attributes_for :announcement_attachments
-  searchkick if SimpleHr.search_kick_enabled?
+  searchkick if KarmaHrm.search_kick_enabled?
   resourcify
 end

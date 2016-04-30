@@ -20,17 +20,17 @@ GIT
       rails (>= 3.1)
 
 PATH
-  remote: plugins/simplehr_discussion
+  remote: plugins/karmahrm_discussion
   specs:
-    simplehr_discussion (0.0.1)
+    karmahrm_discussion (0.0.1)
       rails (~> 4.2.0)
       rails-observers
       workflow
 
 PATH
-  remote: plugins/simplehr_feed
+  remote: plugins/karmahrm_feed
   specs:
-    simplehr_feed (0.0.1)
+    karmahrm_feed (0.0.1)
       autoprefixer-rails
       public_activity
       rails (~> 4.2.0)
@@ -585,6 +585,8 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-datatables-rails (~> 3.3.0)
   jquery-rails
+  karmahrm_discussion!
+  karmahrm_feed!
   mailboxer
   mailgun_rails
   markable!
@@ -620,8 +622,6 @@ DEPENDENCIES
   select2-rails
   shoulda-matchers (~> 3.1)
   simple_form
-  simplehr_discussion!
-  simplehr_feed!
   spring
   thin
   turbolinks

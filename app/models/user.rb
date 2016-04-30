@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
 	 acts_as_messageable
 	 acts_as_marker
 	 has_many :identities
-	 searchkick if SimpleHr.search_kick_enabled?
+	 searchkick if KarmaHrm.search_kick_enabled?
 
   def name
  		 first_name + last_name

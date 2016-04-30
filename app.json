@@ -1,7 +1,7 @@
 {
-  "name": "SimpleHr",
+  "name": "KarmaHrm",
   "description": "Simple Human resource management system in rails",
-  "repository": "https://github.com/simplehrm/simplehr",
+  "repository": "https://github.com/karmahrm/karmahrm",
   "logo": "https://node-js-sample.herokuapp.com/node.png",
   "keywords": ["rails","hrm"],
   "scripts": {

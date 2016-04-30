@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Simplehr
+module KarmaHrm
   class Application < Rails::Application
     config.to_prepare do
       Devise::SessionsController.layout 'admin_lte_2_login'
@@ -34,6 +34,6 @@ module Simplehr
     config.x.searchkick = Rails.application.config_for(:searchkick)
     # load
     config.railties_order = [:main_app, :all]
-    require 'simple_hr'
+    require 'karma_hrm'
   end
 end

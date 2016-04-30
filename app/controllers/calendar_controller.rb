@@ -7,6 +7,6 @@ class CalendarController < ApplicationController
             else
               Date.today
             end
-    @calendar = SimpleHr::Calendar.new(@date).to_a
+    @calendar = KarmaHrm::Calendar.new(@date).to_a
   end
 end
