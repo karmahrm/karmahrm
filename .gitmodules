@@ -1,6 +1,8 @@
 [submodule "plugins/karmahrm_feed"]
 	path = plugins/karmahrm_feed
 	url = https://github.com/karmahrm/karmahrm_feed
+	branch = master
 [submodule "plugins/karmahrm_discussion"]
 	path = plugins/karmahrm_discussion
 	url = https://github.com/karmahrm/karmahrm_discussion
+	branch= master
