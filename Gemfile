@@ -87,7 +87,7 @@ gem 'markable', github: 'tachyons/markable'
 gem 'rails-observers'
 
 # plugins
-gem 'acts_as_pluggable', github: 'tachyons/acts_as_pluggable'
+gem 'acts_as_pluggable' # , github: 'tachyons/acts_as_pluggable'
 # gem 'acts_as_pluggable',path: '~/projects/acts_as_pluggable'
 
 Dir.entries('plugins').select { |f| !File.directory? f }.each do |plugin|
@@ -112,10 +112,9 @@ gem 'chosen-rails'
 gem 'date_validator'
 # ActiveModel Associations
 gem 'activemodel-associations'
-#Http party
+# Http party
 gem 'httparty'
 gem 'valid_url'
-
 
 group :production do
   gem 'puma'

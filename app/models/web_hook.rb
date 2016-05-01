@@ -9,8 +9,8 @@ class WebHook < ActiveRecord::Base
     parsed_url = URI.parse(url)
     WebHook.post(post_url,
                  body: data.to_json,
-                 headers: {"Content-Type" => "application/json"},
+                 headers: { 'Content-Type' => 'application/json' },
                  verify: false,
-                   basic_auth: auth)
+                 basic_auth: auth)
   end
 end

@@ -35,7 +35,7 @@ class Employee < ActiveRecord::Base
 	 belongs_to :referrer, class_name: 'Employee'
 	 belongs_to :manager, class_name: 'Employee'
 	 has_many :subordinates, class_name: 'Employee', foreign_key: 'manager_id'
-	 has_many :hooks,              dependent: :destroy, class_name: 'EmployeeHook'
+	 has_many :hooks, dependent: :destroy, class_name: 'EmployeeHook'
 	 validates_inclusion_of :gender, in: %w( male female ), allow_nil: true
 	 validates_inclusion_of :marital_status, in: %w( single married divorced widowed ), allow_nil: true
 	 # Delegates
@@ -75,26 +75,27 @@ class Employee < ActiveRecord::Base
  		 save!
  	end
 
-	def age
- 	end
+	 def age
+  	end
 
 	 def experience_in_this_company
  	end
-	def hook_attrs
-    {
-      name: name,
-			email: email
-		}
-	end
 
-	def self.to_csv
-		require 'csv'
-		attributes = %w(id email name)
-		CSV.generate(headers: true) do |csv|
-			csv << attributes
-			all.each do |user|
-				csv << attributes.map { |attr| user.send(attr) }
-			end
-		end
-	end
+	 def hook_attrs
+     {
+       name: name,
+ 			   email: email
+ 		  }
+ 	end
+
+	 def self.to_csv
+ 		require 'csv'
+ 		attributes = %w(id email name)
+ 		CSV.generate(headers: true) do |csv|
+ 			csv << attributes
+ 			all.each do |user|
+ 				csv << attributes.map { |attr| user.send(attr) }
+ 			end
+ 		end
+ 	end
 end
