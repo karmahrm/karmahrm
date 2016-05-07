@@ -15,7 +15,7 @@
 #  employment_status    :string
 #  city                 :string
 #  nationality          :string
-#  private_email        :integer
+#  private_email        :intege
 #  zipcode              :string
 #  referrer_id          :integer
 #  manager_id           :integer
@@ -27,5 +27,5 @@
 #
 
 class EmployeeSerializer < ActiveModel::Serializer
-  attributes :id, :employee_id, :department_id
+  attributes :id, :employee_id
 end
