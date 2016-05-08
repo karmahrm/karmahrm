@@ -27,5 +27,5 @@
 #
 
 class EmployeeSerializer < ActiveModel::Serializer
-  attributes :id, :employee_id
+  attributes :id, :employee_id,:name,:email,:date_of_birth
 end

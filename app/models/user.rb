@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
 	 searchkick if KarmaHrm.search_kick_enabled?
 
   def name
- 		 first_name + last_name
+ 		 first_name + "  " +last_name
  	end
 
   def mailboxer_email(_object)
@@ -75,8 +75,7 @@ class User < ActiveRecord::Base
   		end
  		 identity.user
   end
-
-	 def has_provider?(provider)
+def has_provider?(provider)
  		 identities.where(provider: provider).present?
- 	end
+end
 end
