@@ -1,9 +1,9 @@
 # Simple Hrm
 Simple human resource management system with pluggable features
 
-[![Code Climate](https://codeclimate.com/github/karmahrm/karmahrm/badges/gpa.svg)](https://codeclimate.com/github/simplehrm/simplehr)
-[![Build Status](https://travis-ci.org/karmahrm/karmahrm.svg?branch=master)](https://travis-ci.org/simplehrm/simplehr)
-[![Dependency Status](https://gemnasium.com/karmahrm/karmahrm.svg)](https://gemnasium.com/simplehrm/simplehr)
+[![Code Climate](https://codeclimate.com/github/karmahrm/karmahrm/badges/gpa.svg)](https://codeclimate.com/github/karmahrm/karmahrm)
+[![Build Status](https://travis-ci.org/karmahrm/karmahrm.svg?branch=master)](https://travis-ci.org/karmahrm/karmahrm)
+[![Dependency Status](https://gemnasium.com/karmahrm/karmahrm.svg)](https://gemnasium.com/karmahrm/karmahrm)
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 
