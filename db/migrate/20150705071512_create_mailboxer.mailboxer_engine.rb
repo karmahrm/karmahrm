@@ -2,13 +2,13 @@
 class CreateMailboxer < ActiveRecord::Migration
   def self.up
     # Tables
-  	 # Conversations
+    # Conversations
     create_table :mailboxer_conversations do |t|
       t.column :subject, :string, default: ''
       t.column :created_at, :datetime, null: false
       t.column :updated_at, :datetime, null: false
     end
-  	 # Receipts
+    # Receipts
     create_table :mailboxer_receipts do |t|
       t.references :receiver, polymorphic: true
       t.column :notification_id, :integer, null: false
@@ -19,7 +19,7 @@ class CreateMailboxer < ActiveRecord::Migration
       t.column :created_at, :datetime, null: false
       t.column :updated_at, :datetime, null: false
     end
-  	 # Notifications and Messages
+    # Notifications and Messages
     create_table :mailboxer_notifications do |t|
       t.column :type, :string
       t.column :body, :text
@@ -37,29 +37,29 @@ class CreateMailboxer < ActiveRecord::Migration
     end
 
     # Indexes
-  	 # Conversations
-  	 # Receipts
-  	 add_index 'mailboxer_receipts', 'notification_id'
+    # Conversations
+    # Receipts
+    add_index 'mailboxer_receipts', 'notification_id'
 
-  	 # Messages
-  	 add_index 'mailboxer_notifications', 'conversation_id'
+    # Messages
+    add_index 'mailboxer_notifications', 'conversation_id'
 
     # Foreign keys
-  	 # Conversations
-  	 # Receipts
-  	 add_foreign_key 'mailboxer_receipts', 'mailboxer_notifications', name: 'receipts_on_notification_id', column: 'notification_id'
-  	 # Messages
-  	 add_foreign_key 'mailboxer_notifications', 'mailboxer_conversations', name: 'notifications_on_conversation_id', column: 'conversation_id'
+    # Conversations
+    # Receipts
+    add_foreign_key 'mailboxer_receipts', 'mailboxer_notifications', name: 'receipts_on_notification_id', column: 'notification_id'
+    # Messages
+    add_foreign_key 'mailboxer_notifications', 'mailboxer_conversations', name: 'notifications_on_conversation_id', column: 'conversation_id'
   end
 
   def self.down
-    # Tables
-  	 remove_foreign_key 'mailboxer_receipts', name: 'receipts_on_notification_id'
-  	 remove_foreign_key 'mailboxer_notifications', name: 'notifications_on_conversation_id'
+     # Tables
+     remove_foreign_key 'mailboxer_receipts', name: 'receipts_on_notification_id'
+     remove_foreign_key 'mailboxer_notifications', name: 'notifications_on_conversation_id'
 
-    # Indexes
-    drop_table :mailboxer_receipts
-    drop_table :mailboxer_conversations
-    drop_table :mailboxer_notifications
+     # Indexes
+     drop_table :mailboxer_receipts
+     drop_table :mailboxer_conversations
+     drop_table :mailboxer_notifications
   end
 end

@@ -1,5 +1,5 @@
 Style/Tab:
-  Enabled: false
+  Enabled: true
 Style/Documentation:
   Enabled: false
 Metrics/LineLength:

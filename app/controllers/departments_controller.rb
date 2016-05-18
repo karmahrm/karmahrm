@@ -10,28 +10,28 @@
 #
 
 class DepartmentsController < ApplicationController
-	 before_action :authenticate_user!
-	 before_action :set_department, only: [:show, :edit, :update, :destroy]
-	 def new
- 		 @department = Department.new
- 	end
+   before_action :authenticate_user!
+   before_action :set_department, only: [:show, :edit, :update, :destroy]
+   def new
+      @department = Department.new
+   end
 
-	 def create
- 	end
+   def create
+   end
 
-	 def show
- 	end
+   def show
+   end
 
-	 def index
- 		 @departments = Department.all
- 	end
+   def index
+      @departments = Department.all
+   end
 
-	 def edit
- 	end
+   def edit
+   end
 
-	 private
+  private
 
-	 def set_department
- 			@department = Department.find(params[:id])
- 		end
+   def set_department
+       @department = Department.find(params[:id])
+     end
 end

@@ -10,7 +10,7 @@
 #
 
 class Department < ActiveRecord::Base
-	 belongs_to :company
-	 has_many :employees, dependent: :destroy
-	 has_many :teams
+   belongs_to :company
+   has_many :employees, dependent: :destroy
+   has_many :teams
 end
