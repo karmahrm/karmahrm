@@ -42,7 +42,7 @@ class Employee < ActiveRecord::Base
 	 delegate :first_name, to: :user
 	 delegate :last_name, to: :user
 	 delegate :email, to: :user
-	 delegate :name, to: :user   
+	 delegate :name, to: :user
 	 # callbacks
 	 before_save :create_user
 	 # validations
@@ -53,7 +53,7 @@ class Employee < ActiveRecord::Base
 	 # scopes
 	 scope :active, -> { where(is_active: true) }
 	 scope :inactive, -> { where(is_active: false) }
-     scope :birth_day, -> { where(date_of_birth: Date.today) }
+  scope :birth_day, -> { where(date_of_birth: Date.today) }
 	 # attr_accessor :country_id
 	 # custom
 	 scope :search_import, -> { includes(:user) }
