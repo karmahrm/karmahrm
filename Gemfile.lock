@@ -12,22 +12,6 @@ GIT
     markable (0.1.4)
       rails (>= 3.1)
 
-PATH
-  remote: plugins/karmahrm_discussion
-  specs:
-    karmahrm_discussion (0.0.1)
-      rails (~> 4.2.0)
-      rails-observers
-      workflow
-
-PATH
-  remote: plugins/karmahrm_feed
-  specs:
-    karmahrm_feed (0.0.1)
-      autoprefixer-rails
-      public_activity
-      rails (~> 4.2.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -323,11 +307,6 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
-    public_activity (1.5.0)
-      actionpack (>= 3.0.0)
-      activerecord (>= 3.0)
-      i18n (>= 0.5.0)
-      railties (>= 3.0.0)
     puma (3.4.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
@@ -512,7 +491,6 @@ GEM
     whenever (0.9.4)
       chronic (>= 0.6.3)
     will_paginate (3.0.7)
-    workflow (1.2.0)
 
 PLATFORMS
   ruby
@@ -557,8 +535,6 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-datatables-rails (~> 3.3.0)
   jquery-rails
-  karmahrm_discussion!
-  karmahrm_feed!
   mailboxer
   mailgun_rails
   markable!
@@ -604,5 +580,8 @@ DEPENDENCIES
   whenever
   will_paginate (~> 3.0.6)
 
+RUBY VERSION
+   ruby 2.2.2p95
+
 BUNDLED WITH
-   1.11.2
+   1.12.4
