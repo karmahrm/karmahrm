@@ -9,5 +9,5 @@
 #
 
 class Team < ActiveRecord::Base
-	 has_many :employees, through: :team_membership
+   has_many :employees, through: :team_membership
 end
