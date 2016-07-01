@@ -9,29 +9,29 @@ module Api
       end
 
       def show
-      	@results = Employee.find params[:id]
-      	render_response
+        @results = Employee.find params[:id]
+        render_response
       end
 
       def edit
-      	@results = Employee.find params[:id]
+        @results = Employee.find params[:id]
       end
 
       def update
-      	responce = Employee.update_attributes(params[:employee])
-      	render json: { responce: responce }
-      	 # to do  updated data
+        responce = Employee.update_attributes(params[:employee])
+        render json: { responce: responce }
+        # to do  updated data
       end
 
       def destroy
-      	responce = Employee.update_attributes(is_active: false)
-      	render json: { responce: responce }
+        responce = Employee.update_attributes(is_active: false)
+        render json: { responce: responce }
       end
 
-  	   private
+      private
 
       def render_response
-   	 	render json: @results
+        render json: @results
       end
     end
   end
