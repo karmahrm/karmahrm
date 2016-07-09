@@ -53,13 +53,8 @@ class User < ActiveRecord::Base
   searchkick if KarmaHrm.search_kick_enabled?
 
   def name
-<<<<<<< HEAD
- 		 first_name + '  ' + last_name
- 	end
-=======
-      first_name + last_name
+      first_name + '  ' + last_name
    end
->>>>>>> upstream/master
 
   def mailboxer_email(_object)
       email
@@ -69,10 +64,10 @@ class User < ActiveRecord::Base
       Employee.find_by_user_id(id)
   end
 
-<<<<<<< HEAD
   def has_provider?(provider)
-   		 identities.where(provider: provider).present?
-=======
+        identities.where(provider: provider).present?
+  end
+
   def self.find_for_oauth(auth, signed_in_resource = nil)
    # Get the identity and user if they exist
    identity = Identity.find_for_oauth(auth)
@@ -87,6 +82,5 @@ class User < ActiveRecord::Base
 
   def has_provider?(provider)
      identities.where(provider: provider).present?
->>>>>>> upstream/master
   end
 end

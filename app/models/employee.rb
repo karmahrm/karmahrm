@@ -27,42 +27,6 @@
 #
 
 class Employee < ActiveRecord::Base
-<<<<<<< HEAD
-	 # Associations
-	 belongs_to :user, dependent: :destroy
-	 belongs_to :department
-	 has_many :teams, through: :team_membership
-	 has_many :tasks
-	 belongs_to :referrer, class_name: 'Employee'
-	 belongs_to :manager, class_name: 'Employee'
-	 has_many :subordinates, class_name: 'Employee', foreign_key: 'manager_id'
-	 has_many :hooks, dependent: :destroy, class_name: 'EmployeeHook'
-	 validates_inclusion_of :gender, in: %w( male female ), allow_nil: true
-	 validates_inclusion_of :marital_status, in: %w( single married divorced widowed ), allow_nil: true
-	 # Delegates
-	 delegate :first_name, to: :user
-	 delegate :last_name, to: :user
-	 delegate :email, to: :user
-	 delegate :name, to: :user
-	 # callbacks
-	 before_save :create_user
-	 # validations
-	 validates :employee_id, uniqueness: true
-	 validates :employee_id, presence: true
-	 # nested attributes
-	 accepts_nested_attributes_for :user
-	 # scopes
-	 scope :active, -> { where(is_active: true) }
-	 scope :inactive, -> { where(is_active: false) }
-  scope :birth_day, -> { where(date_of_birth: Date.today) }
-	 # attr_accessor :country_id
-	 # custom
-	 scope :search_import, -> { includes(:user) }
-	 searchkick if KarmaHrm.search_kick_enabled?
-	 def create_user
-		 	# do nothing
-	 end
-=======
    # Associations
    belongs_to :user, dependent: :destroy
    belongs_to :department
@@ -78,6 +42,7 @@ class Employee < ActiveRecord::Base
    delegate :first_name, to: :user
    delegate :last_name, to: :user
    delegate :email, to: :user
+   delegate :name, to: :user
    # callbacks
    before_save :create_user
    # validations
@@ -93,6 +58,7 @@ class Employee < ActiveRecord::Base
    # custom
    scope :search_import, -> { includes(:user) }
    searchkick if KarmaHrm.search_kick_enabled?
+   # Associations
    def create_user
       # do nothing
     end
@@ -100,7 +66,6 @@ class Employee < ActiveRecord::Base
    def name
       first_name + last_name
    end
->>>>>>> upstream/master
 
    def inactivate
       self.is_active = true
@@ -113,7 +78,7 @@ class Employee < ActiveRecord::Base
    end
 
    def age
-    end
+   end
 
    def experience_in_this_company
    end
