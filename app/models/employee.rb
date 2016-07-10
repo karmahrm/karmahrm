@@ -42,6 +42,7 @@ class Employee < ActiveRecord::Base
    delegate :first_name, to: :user
    delegate :last_name, to: :user
    delegate :email, to: :user
+   delegate :name, to: :user
    # callbacks
    before_save :create_user
    # validations
@@ -57,6 +58,7 @@ class Employee < ActiveRecord::Base
    # custom
    scope :search_import, -> { includes(:user) }
    searchkick if KarmaHrm.search_kick_enabled?
+   # Associations
    def create_user
       # do nothing
     end
@@ -76,7 +78,7 @@ class Employee < ActiveRecord::Base
    end
 
    def age
-    end
+   end
 
    def experience_in_this_company
    end
