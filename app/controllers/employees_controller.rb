@@ -29,7 +29,7 @@
 class EmployeesController < ApplicationController
    before_action :authenticate_user!
    before_action :set_employee, only: [:show, :edit, :update, :destroy, :change_manager]
-   before_acti`on :authenticate_user!
+   before_action :authenticate_user!
    def index
       @q = Employee.ransack(params[:q])
       @employees = if params[:query].present?
