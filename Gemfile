@@ -90,9 +90,9 @@ gem 'rails-observers'
 gem 'acts_as_pluggable' # , github: 'tachyons/acts_as_pluggable'
 # gem 'acts_as_pluggable',path: '~/projects/acts_as_pluggable'
 
-# Dir.entries('plugins').select { |f| !File.directory? f }.each do |plugin|
-#   gem plugin, path: 'plugins/' + plugin
-# end
+Dir.entries('plugins').select { |f| !File.directory? f }.each do |plugin|
+  gem plugin, path: 'plugins/' + plugin
+end
 
 # Admin LTE
 gem 'adminlte2-rails', github: 'tachyons/adminlte2-rails'
