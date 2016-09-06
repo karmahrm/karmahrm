@@ -5,7 +5,7 @@ module Api
       before_action :set_employee, only: [:show, :update, :destroy, :change_manager]
 
       def index
-       render json: Employee.active
+        render json: Employee.active
       end
 
       def show
