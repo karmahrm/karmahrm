@@ -1,37 +1,38 @@
 module Api
   module V1
     class EmployeesController < ApiController
-      # before_action :doorkeeper_authorize!
-      # after_filter :render_response, unless: -> { @results.nil? }
+      before_action :doorkeeper_authorize!
+      before_action :set_employee, only: [:show, :update, :destroy, :change_manager]
+
       def index
-        @results = Employee.active
-        render_response
+       render json: Employee.active
       end
 
       def show
-        @results = Employee.find params[:id]
-        render_response
-      end
-
-      def edit
-        @results = Employee.find params[:id]
+        render json: Employee.find(params[:id])
       end
 
       def update
-        responce = Employee.update_attributes(params[:employee])
+        responce = @employee.update_attributes(employee_params)
         render json: { responce: responce }
-        # to do  updated data
       end
 
       def destroy
-        responce = Employee.update_attributes(is_active: false)
+        responce = @employee.update_attributes(is_active: false)
         render json: { responce: responce }
       end
 
       private
 
-      def render_response
-        render json: @results
+      def set_employee
+        @employee = Employee.find(params[:id])
+      end
+
+      def employee_params
+        params.require(:employee).permit(:employee_id, :department_id, :manager_id,
+                                         user_attributes: [
+                                           :id, :first_name, :last_name, :email, :password, :avatar
+                                         ])
       end
     end
   end
