@@ -2,7 +2,7 @@ language: ruby
 services:
   - postgresql
 rvm:
-  - 2.2.2
+  - 2.3.1
 before_install:
   - gem update --system
   - gem --version
@@ -13,6 +13,6 @@ before_script:
 
 notifications:
   email:
-    - aboobackervyd+simplehr@gmail.com
-    - mastersdream+simplehr@gmail.com
-    - sobisunny+simplehr@gmail.com
+    - aboobackervyd+karmahrm@gmail.com
+    - mastersdream+karmahrm@gmail.com
+    - sobisunny+karmahrm@gmail.com

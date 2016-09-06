@@ -5,7 +5,7 @@ class CalendarController < ApplicationController
     @date = if params[:date].present?
               Date.parse(params[:date])
             else
-              Date.today
+              Time.zone.today
             end
     @calendar = KarmaHrm::Calendar.new(@date).to_a
   end

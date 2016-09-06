@@ -39,7 +39,7 @@ class EmployeesController < ApplicationController
                  end
       respond_to do |format|
         format.html
-        format.csv { send_data @employees.to_csv, filename: "employees-#{Date.today}.csv" }
+        format.csv { send_data @employees.to_csv, filename: "employees-#{Time.zone.today}.csv" }
       end
    end
 

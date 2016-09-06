@@ -1,6 +1,6 @@
 module KarmaHrm
   class Calendar
-    def initialize(date = Date.today)
+    def initialize(date = Time.zone.today)
       @date = date
     end
 
@@ -35,23 +35,23 @@ module KarmaHrm
     private
 
     def past
-      'past' if @date < Date.today
+      'past' if @date < Time.zone.today
     end
 
     def future
-      'future' if @date > Date.today
+      'future' if @date > Time.zone.today
     end
 
     def today
-      'today' if @date == Date.today
+      'today' if @date == Time.zone.today
     end
 
     def other_month
-      'other-month' if @date.month != Date.today.month
+      'other-month' if @date.month != Time.zone.today.month
     end
   end
   class CalendarWeek
-    def initialize(date = Date.today)
+    def initialize(date = Time.zone.today)
       @date = date
     end
 

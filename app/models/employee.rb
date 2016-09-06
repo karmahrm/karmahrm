@@ -53,7 +53,7 @@ class Employee < ActiveRecord::Base
    # scopes
    scope :active, -> { where(is_active: true) }
    scope :inactive, -> { where(is_active: false) }
-   scope :birth_day, -> { where(date_of_birth: Date.today) }
+   scope :birth_day, -> { where(date_of_birth: Time.zone.today) }
    # attr_accessor :country_id
    # custom
    scope :search_import, -> { includes(:user) }
