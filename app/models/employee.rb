@@ -36,8 +36,8 @@ class Employee < ActiveRecord::Base
    belongs_to :manager, class_name: 'Employee'
    has_many :subordinates, class_name: 'Employee', foreign_key: 'manager_id'
    has_many :hooks, dependent: :destroy, class_name: 'EmployeeHook'
-   validates_inclusion_of :gender, in: %w( male female ), allow_nil: true
-   validates_inclusion_of :marital_status, in: %w( single married divorced widowed ), allow_nil: true
+   validates :gender, inclusion: { in: %w(male female), allow_nil: true }
+   validates :marital_status, inclusion: { in: %w(single married divorced widowed), allow_nil: true }
    # Delegates
    delegate :first_name, to: :user
    delegate :last_name, to: :user
@@ -95,7 +95,7 @@ class Employee < ActiveRecord::Base
      attributes = %w(id email name)
      CSV.generate(headers: true) do |csv|
        csv << attributes
-       all.each do |user|
+       all.find_each do |user|
          csv << attributes.map { |attr| user.send(attr) }
        end
      end
