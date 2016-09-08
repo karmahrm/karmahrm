@@ -34,6 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :username
       t.string :first_name
       t.string :last_name
+      t.references :role, polymorphic: true
       t.boolean :is_active, default: true
 
       t.timestamps null: false

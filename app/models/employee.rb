@@ -28,7 +28,7 @@
 
 class Employee < ActiveRecord::Base
    # Associations
-   belongs_to :user, dependent: :destroy
+   has_one :user, dependent: :destroy, as: :role
    belongs_to :department
    has_many :teams, through: :team_membership
    has_many :tasks
@@ -60,8 +60,8 @@ class Employee < ActiveRecord::Base
    searchkick if KarmaHrm.search_kick_enabled?
    # Associations
    def create_user
-      # do nothing
-    end
+     # do nothing
+   end
 
    def name
       first_name + last_name
