@@ -50,22 +50,23 @@ class User < ActiveRecord::Base
   acts_as_messageable
   acts_as_marker
   has_many :identities
+  belongs_to :role, polymorphic: true
   searchkick if KarmaHrm.search_kick_enabled?
 
   def name
-      first_name + '  ' + last_name
-   end
+    first_name + '  ' + last_name
+  end
 
   def mailboxer_email(_object)
-      email
-   end
+    email
+  end
 
   def employee
-      Employee.find_by_user_id(id)
+    role
   end
 
   def has_provider?(provider)
-        identities.where(provider: provider).present?
+    identities.where(provider: provider).present?
   end
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
@@ -78,9 +79,9 @@ class User < ActiveRecord::Base
       identity.user ||= User.new
    end
    identity.user
- end
+  end
 
   def has_provider?(provider)
-     identities.where(provider: provider).present?
+    identities.where(provider: provider).present?
   end
 end

@@ -19,12 +19,10 @@ class CreateEmployees < ActiveRecord::Migration
       t.integer :referrer_id
       t.integer :manager_id
       t.string :country_id
-      t.references :user
       t.references :department
       t.timestamps null: false
     end
     add_index :employees, :employee_id, unique: true
-    add_index :employees, :user_id, unique: true
     add_index :employees, :referrer_id
     add_index :employees, :manager_id
   end

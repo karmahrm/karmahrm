@@ -130,7 +130,6 @@ ActiveRecord::Schema.define(version: 20_160_327_044_047) do
     t.integer  'referrer_id'
     t.integer  'manager_id'
     t.string   'country_id'
-    t.integer  'user_id'
     t.integer  'department_id'
     t.datetime 'created_at',                          null: false
     t.datetime 'updated_at',                          null: false
@@ -139,7 +138,6 @@ ActiveRecord::Schema.define(version: 20_160_327_044_047) do
   add_index 'employees', ['employee_id'], name: 'index_employees_on_employee_id', unique: true, using: :btree
   add_index 'employees', ['manager_id'], name: 'index_employees_on_manager_id', using: :btree
   add_index 'employees', ['referrer_id'], name: 'index_employees_on_referrer_id', using: :btree
-  add_index 'employees', ['user_id'], name: 'index_employees_on_user_id', unique: true, using: :btree
 
   create_table 'identities', force: :cascade do |t|
     t.integer  'user_id'
@@ -412,6 +410,8 @@ ActiveRecord::Schema.define(version: 20_160_327_044_047) do
     t.string   'username'
     t.string   'first_name'
     t.string   'last_name'
+    t.integer  'role_id'
+    t.string   'role_type'
     t.boolean  'is_active', default: true
     t.datetime 'created_at',                            null: false
     t.datetime 'updated_at',                            null: false
