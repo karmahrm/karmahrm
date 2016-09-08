@@ -1,5 +1,5 @@
 development:
-  enabled: true
+  enabled: false
 production:
   enabled: false
 test:

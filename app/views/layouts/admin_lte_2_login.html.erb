@@ -67,10 +67,10 @@
     <% end %>
     <div class="social-auth-links text-center">
       <p>- OR -</p>
-      <%= link_to  user_omniauth_authorize_path(:twitter),class: "btn btn-block btn-social btn-twitter btn-flat" do%>
+      <%= link_to  user_twitter_omniauth_authorize_path,class: "btn btn-block btn-social btn-twitter btn-flat" do%>
         <i class="fa fa-twitter"></i> Sign in using Twitter
       <% end %>
-      <%= link_to user_omniauth_authorize_path(:linkedin),class: "btn btn-block btn-social btn-linkedin btn-flat" do%>
+      <%= link_to user_linkedin_omniauth_authorize_path,class: "btn btn-block btn-social btn-linkedin btn-flat" do%>
       <i class="fa fa-linkedin"></i> Sign in using linkedin
       <% end %>
     </div>
